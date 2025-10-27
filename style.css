@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #d8bcb1;
   color: #3b2f2a;
-  text-align: center;
+  text-align: center; /* keep header/nav centered */
   margin: 0;
   padding: 0;
 }
@@ -26,54 +26,46 @@ nav a:hover {
 }
 
 /* --------------------------------------------------
-   main: override body text-align and improve layout
-   Changes:
-   - text-align: left to prevent centering list text
-   - increased spacing and typography for readability
-   -------------------------------------------------- */
+   main content styling
+   - override body text-align
+   - increase font size and line spacing for readability
+-------------------------------------------------- */
 main {
   max-width: 800px;
   margin: 40px auto;
-  line-height: 1.8; 
-  text-align: left;     /* Keep left-aligned text */
+  line-height: 1.8;
+  text-align: left;   /* left-align paragraphs and lists */
   font-size: 1.15rem;
 }
 
-/* Optional: style the main heading for better hierarchy */
 main h1 {
   text-align: center;
   font-size: 2rem;    
   margin-bottom: 1.5rem;
 }
 
-/* Optional: give paragraphs more breathing room */
-main p {
-  margin-bottom: 1rem;
-}
-
-
-/* --------------------------------------------------
-   how-list: updated for larger text and more spacing
-   Changes:
-   - increased padding-left
-   - bigger font-size
-   - increased line-height
-   - spacing between items
-   -------------------------------------------------- */
-.how-list {
-  list-style-position: outside;
-  padding-left: 2rem;    /* Increased indent for nicer spacing */
-  font-size: 1.15rem;    /* Made text slightly larger */
-  line-height: 1.8;      /* Increased line spacing for readability */
-}
-
-.how-list li {
-  margin-bottom: 1rem;   /* More space between bullet points */
-}
-
-/* Keep the heading centered and larger */
 main h2 {
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
+}
+
+main p {
+  margin-bottom: 1rem;
+}
+
+/* --------------------------------------------------
+   how-list styling
+   - left-aligned bullets
+   - larger font and spacing
+-------------------------------------------------- */
+.how-list {
+  list-style-position: outside;
+  padding-left: 2rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.how-list li {
+  margin-bottom: 1rem;
 }
