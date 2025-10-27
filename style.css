@@ -25,26 +25,41 @@ nav a:hover {
   background-color: #e0c9be;
 }
 
+/* --------------------------------------------------
+   main: override body text-align and improve layout
+   Changes:
+   - text-align: left to prevent centering list text
+   - increased spacing and typography for readability
+   -------------------------------------------------- */
 main {
   max-width: 800px;
   margin: 40px auto;
   line-height: 1.6;
-  text-align: left;
+  text-align: left; /* <-- ADDED: override body centering */
 }
 
+/* --------------------------------------------------
+   how-list: updated for larger text and more spacing
+   Changes:
+   - increased padding-left
+   - bigger font-size
+   - increased line-height
+   - spacing between items
+   -------------------------------------------------- */
 .how-list {
   list-style-position: outside;
-  padding-left: 2rem;      /* ✅ Increased indent for nicer spacing */
-  font-size: 1.15rem;      /* ✅ Made text slightly larger */
-  line-height: 1.8;        /* ✅ Increased line spacing between wrapped lines */
+  padding-left: 2rem;    /* Increased indent for nicer spacing */
+  font-size: 1.15rem;    /* Made text slightly larger */
+  line-height: 1.8;      /* Increased line spacing for readability */
 }
 
 .how-list li {
-  margin-bottom: 1rem;     /* ✅ More space between bullet points */
+  margin-bottom: 1rem;   /* More space between bullet points */
 }
 
+/* Keep the heading centered and larger */
 main h2 {
-  text-align: center;      /* ✅ Keep heading centered */
-  font-size: 1.8rem;       /* ✅ Slightly larger heading for emphasis */
-  margin-bottom: 1.5rem;   /* ✅ Extra space below heading */
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
 }
