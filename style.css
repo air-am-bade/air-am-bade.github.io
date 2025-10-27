@@ -1,3 +1,6 @@
+/* -------------------------
+   Global Styles
+------------------------- */
 body {
   font-family: Arial, sans-serif;
   background-color: #d8bcb1;
@@ -25,22 +28,21 @@ nav a:hover {
   background-color: #e0c9be;
 }
 
-/* --------------------------------------------------
-   main content styling
-   - override body text-align
-   - increase font size and line spacing for readability
--------------------------------------------------- */
+/* -------------------------
+   Main Content Styling
+------------------------- */
 main {
   max-width: 800px;
   margin: 40px auto;
-  line-height: 1.8;
-  text-align: left;   /* left-align paragraphs and lists */
-  font-size: 1.15rem;
+  font-size: 1.15rem;   /* base font size for paragraphs and lists */
+  line-height: 1.8;     /* consistent line spacing */
+  text-align: left;     /* left-align paragraphs and lists */
 }
 
+/* Headings inside main */
 main h1 {
   text-align: center;
-  font-size: 2rem;    
+  font-size: 2rem;
   margin-bottom: 1.5rem;
 }
 
@@ -50,22 +52,33 @@ main h2 {
   margin-bottom: 1.5rem;
 }
 
+/* Paragraph spacing */
 main p {
   margin-bottom: 1rem;
 }
 
-/* --------------------------------------------------
-   how-list styling
-   - left-aligned bullets
-   - larger font and spacing
--------------------------------------------------- */
+/* -------------------------
+   List Styling (.how-list)
+------------------------- */
 .how-list {
+  list-style-position: outside;
+  padding-left: 2rem;    /* spacing from edge */
+  font-size: 1.2rem;     /* slightly larger than paragraphs */
+  line-height: 1.8;
+}
+
+.how-list li {
+  margin-bottom: 1rem;   /* spacing between bullet points */
+}
+
+/* Optional: make all lists inside main consistent if class not used */
+main ul {
   list-style-position: outside;
   padding-left: 2rem;
   font-size: 1.15rem;
   line-height: 1.8;
 }
 
-.how-list li {
+main ul li {
   margin-bottom: 1rem;
 }
