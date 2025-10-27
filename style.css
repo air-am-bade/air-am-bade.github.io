@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #d8bcb1; /* matches screenshot background */
+  background-color: #d8bcb1;
   color: #3b2f2a;
   text-align: center;
   margin: 0;
@@ -34,9 +34,23 @@ nav a:hover {
 main {
   max-width: 800px;
   margin: 40px auto;
-  line-height: 1.6;
-  text-align: left; /* <-- ADDED: override body centering */
+  line-height: 1.8; 
+  text-align: left;     /* Keep left-aligned text */
+  font-size: 1.15rem;
 }
+
+/* Optional: style the main heading for better hierarchy */
+main h1 {
+  text-align: center;
+  font-size: 2rem;    
+  margin-bottom: 1.5rem;
+}
+
+/* Optional: give paragraphs more breathing room */
+main p {
+  margin-bottom: 1rem;
+}
+
 
 /* --------------------------------------------------
    how-list: updated for larger text and more spacing
