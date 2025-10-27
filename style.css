@@ -29,4 +29,22 @@ main {
   max-width: 800px;
   margin: 40px auto;
   line-height: 1.6;
+  text-align: left;
+}
+
+.how-list {
+  list-style-position: outside;
+  padding-left: 2rem;      /* ✅ Increased indent for nicer spacing */
+  font-size: 1.15rem;      /* ✅ Made text slightly larger */
+  line-height: 1.8;        /* ✅ Increased line spacing between wrapped lines */
+}
+
+.how-list li {
+  margin-bottom: 1rem;     /* ✅ More space between bullet points */
+}
+
+main h2 {
+  text-align: center;      /* ✅ Keep heading centered */
+  font-size: 1.8rem;       /* ✅ Slightly larger heading for emphasis */
+  margin-bottom: 1.5rem;   /* ✅ Extra space below heading */
 }
