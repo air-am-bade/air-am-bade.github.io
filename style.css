@@ -102,7 +102,7 @@ main ul li {
 
 /* Make the logo small */
 .logo {
-  width: 24px;         /* smaller size — adjust as you like */
+  width: 48px;         /* 24 beofre */
   height: auto;
   display: block;
 }
