@@ -1,7 +1,7 @@
-/* Body background for edges */
+/* Body background for sides */
 body {
   font-family: Arial, sans-serif;
-  background-color: #e9d4cb; /* subtler color for left/right edges */
+  background-color: #e9d4cb; /* lighter color for left/right edges */
   color: #3b2f2a;
   margin: 0;
   padding: 0;
@@ -10,14 +10,14 @@ body {
 
 /* Main content container */
 .container {
-  background-color: #d8bcb1; /* main content color */
-  max-width: 900px;          /* width of central content */
-  margin: 0 auto;            /* center horizontally */
-  padding: 20px;             /* spacing inside container */
+  background-color: #d8bcb1; /* original main color for text area */
+  max-width: 900px;          /* width of main content */
+  margin: 0 auto;            /* centers the container */
+  padding: 20px;             /* inner spacing */
   box-sizing: border-box;
 }
 
-/* Header and nav styles remain the same */
+/* Header and navigation remain the same */
 header {
   padding: 20px;
 }
@@ -35,6 +35,7 @@ nav a {
 nav a:hover {
   background-color: #e0c9be;
 }
+
 
 /* -------------------------
    Main Content Styling
