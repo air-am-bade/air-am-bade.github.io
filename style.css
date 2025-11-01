@@ -4,7 +4,7 @@ body {
   background-color: #e9d4cb;
   color: #3b2f2a;
   margin: 0;
-  scroll-behavior: smooth; /* for smooth scroll */
+  scroll-behavior: smooth;
 }
 
 /* Header fixed at top */
@@ -12,7 +12,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: white;
+  background: #ffffff; /* white nav bar */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,23 +50,23 @@ body {
   color: #3b2f2a;
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #f5e8e3;
+  background-color: #ffffff; /* white background for tabs */
   font-weight: bold;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-  background-color: #e0c9be;
+  background-color: #f5e8e3;
 }
 
 /* Highlight active tab */
 .nav-link.active {
-  background-color: #d8bcb1;
+  background-color: #d8bcb1; /* colored background for active page */
 }
 
 /* Section styling */
 .section {
-  padding: 120px 20px; /* space for fixed header */
+  padding: 120px 20px;
   max-width: 800px;
   margin: 0 auto;
   text-align: left;
