@@ -78,3 +78,41 @@ body {
   margin: 0;
   scroll-behavior: smooth;
 }
+
+
+
+
+
+/* -------- HOME SECTION -------- */
+.home-section {
+  background-color: #d8bcb1;       /* main warm beige tone */
+  text-align: center;
+  padding: 80px 20px;              /* space inside the block */
+  margin-top: 100px;               /* offset for fixed nav */
+  margin-bottom: 0;
+}
+
+/* Heading: white text and spacing */
+.home-section h1 {
+  color: #ffffff;
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Paragraphs: dark text and line spacing */
+.home-section p {
+  color: #000000;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 10px auto;
+  max-width: 800px;                /* keep nice readable width */
+}
+
+/* Last line (italic + bold) */
+.home-section .final-line {
+  margin-top: 40px;
+  font-style: italic;
+  font-weight: bold;
+}
+
