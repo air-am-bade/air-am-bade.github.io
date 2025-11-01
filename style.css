@@ -1,127 +1,76 @@
-/* Body background for sides */
+/* General styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #e9d4cb; /* lighter color for left/right edges */
+  background-color: #e9d4cb;
   color: #3b2f2a;
   margin: 0;
-  padding: 0;
-  text-align: center;
+  scroll-behavior: smooth; /* for smooth scroll */
 }
 
-/* Main content container */
-.container {
-  background-color: #d8bcb1; /* original main color for text area */
-  max-width: 900px;          /* width of main content */
-  margin: 0 auto;            /* centers the container */
-  padding: 20px;             /* inner spacing */
-  box-sizing: border-box;
-}
-
-/* Header and navigation remain the same */
-header {
-  padding: 20px;
-}
-
-nav a {
-  background-color: #f5e8e3;
-  color: #3b2f2a;
-  padding: 10px 20px;
-  margin: 0 5px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-nav a:hover {
-  background-color: #e0c9be;
-}
-
-
-/* -------------------------
-   Main Content Styling
-------------------------- */
-main {
-  max-width: 800px;
-  margin: 40px auto;
-  font-size: 1.15rem;   /* base font size for paragraphs and lists */
-  line-height: 1.8;     /* consistent line spacing */
-  text-align: left;     /* left-align paragraphs and lists */
-}
-
-/* Headings inside main */
-main h1 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-main h2 {
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Paragraph spacing */
-main p {
-  margin-bottom: 1rem;
-}
-
-/* -------------------------
-   List Styling (.how-list)
-------------------------- */
-.how-list {
-  list-style-position: outside;
-  padding-left: 2rem;    /* spacing from edge */
-  font-size: 1.2rem;     /* slightly larger than paragraphs */
-  line-height: 1.8;
-}
-
-.how-list li {
-  margin-bottom: 1rem;   /* spacing between bullet points */
-}
-
-/* Optional: make all lists inside main consistent if class not used */
-main ul {
-  list-style-position: outside;
-  padding-left: 2rem;
-  font-size: 1.15rem;
-  line-height: 1.8;
-}
-
-main ul li {
-  margin-bottom: 1rem;
-}
-
-/* Header positioned in the top-left corner */
-.site-header {
-  position: fixed;     /* stays in place when scrolling */
+/* Header fixed at top */
+.main-header {
+  position: fixed;
   top: 0;
-  left: 0;
-  padding: 8px 12px;   /* some breathing space from edges */
-  background: transparent;  /* or white if you prefer */
-  z-index: 1000;       /* ensures it stays on top */
+  width: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
 }
 
-/* Logo + text side by side */
+/* Logo */
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 6px;            /* small space between logo and text */
+  gap: 8px;
 }
 
-/* Make the logo small */
 .logo {
-  width: 48px;         /* 24 beofre */
+  width: 45px;
   height: auto;
-  display: block;
 }
 
-/* Text next to logo */
 .site-title {
-  font-family: Arial, sans-serif;
-  font-size: 1.2rem;
   font-weight: bold;
+  font-size: 1.2rem;
   color: #000;
-  line-height: 1;
 }
 
+/* Navigation */
+.nav-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #3b2f2a;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #f5e8e3;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #e0c9be;
+}
+
+/* Highlight active tab */
+.nav-link.active {
+  background-color: #d8bcb1;
+}
+
+/* Section styling */
+.section {
+  padding: 120px 20px; /* space for fixed header */
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  background-color: #d8bcb1;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
