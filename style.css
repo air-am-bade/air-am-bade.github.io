@@ -1,19 +1,30 @@
-/* Header fixed at top */
+/* === Global Styles === */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e9d4cb;
+  color: #3b2f2a;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+/* === Header Navigation === */
 .main-header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #ffffff; /* white nav bar */
+  background-color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 40px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  justify-content: center; /* center content horizontally */
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
 
-/* Keep logo aligned left */
+/* Logo stays left, nav centered using absolute positioning */
 .logo-container {
+  position: absolute;
+  left: 30px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -30,22 +41,18 @@
   color: #000;
 }
 
-/* Center nav bar */
+/* Centered navigation */
 .nav-bar {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);  /* centers the nav bar horizontally */
   display: flex;
   gap: 10px;
 }
 
-/* Nav links */
 .nav-link {
   text-decoration: none;
   color: #3b2f2a;
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #ffffff; /* white background for tabs */
+  background-color: #ffffff;
   font-weight: bold;
   transition: all 0.3s ease;
 }
@@ -54,63 +61,54 @@
   background-color: #f5e8e3;
 }
 
-/* Highlight active tab */
 .nav-link.active {
-  background-color: #d8bcb1; /* colored background for active page */
+  background-color: #d8bcb1; /* active page color */
 }
 
-/* Section styling */
-.section {
-  padding: 120px 20px;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: left;
-  background-color: #d8bcb1;
-  margin-bottom: 20px;
-  border-radius: 8px;
-}
-
-/* General page styling */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #e9d4cb;
-  color: #3b2f2a;
-  margin: 0;
-  scroll-behavior: smooth;
-}
-
-
-
-/* -------- HOME SECTION -------- */
+/* === Main Section === */
 .home-section {
-  background-color: #d8bcb1;       /* main warm beige tone */
+  background-color: #d8bcb1;
   text-align: center;
-  padding: 80px 20px;              /* space inside the block */
-  margin-top: 100px;               /* offset for fixed nav */
-  margin-bottom: 0;
+  padding: 140px 20px 80px; /* top padding accounts for fixed header */
 }
 
-/* Heading: white text and spacing */
 .home-section h1 {
-  color: #ffffff;
-  font-size: 1.6rem;
+  color: #ffffff; /* white caption */
+  font-size: 1.8rem;
   margin-bottom: 30px;
   font-weight: bold;
 }
 
-/* Paragraphs: dark text and line spacing */
 .home-section p {
   color: #000000;
-  font-size: 0.95rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.7;
   margin: 10px auto;
-  max-width: 800px;                /* keep nice readable width */
+  max-width: 850px;
 }
 
-/* Last line (italic + bold) */
 .home-section .final-line {
   margin-top: 40px;
   font-style: italic;
   font-weight: bold;
 }
 
+/* === Responsive Fix === */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-container {
+    position: static;
+    margin-bottom: 10px;
+  }
+
+  .nav-bar {
+    position: static;
+    transform: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
