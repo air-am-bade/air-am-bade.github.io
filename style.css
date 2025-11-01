@@ -81,10 +81,10 @@ body {
 
 .home-section p {
   color: #000000;
-  font-size: 1rem;
-  line-height: 1.7;
-  margin: 10px auto;
-  max-width: 850px;
+  font-size: 1.2rem;
+  line-height: 1.9;
+  margin: 15px auto;
+  max-width: 950px;  /* text block width */
 }
 
 .home-section .final-line {
