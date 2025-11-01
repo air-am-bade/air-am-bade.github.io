@@ -84,7 +84,7 @@ body {
   font-size: 1.2rem;
   line-height: 1.9;
   margin: 15px auto;
-  max-width: 1000px;  /* text block width, 950px before */
+  max-width: 1010px;  /* text block width, 950px before */
 }
 
 .home-section .final-line {
