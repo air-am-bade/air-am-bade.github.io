@@ -190,27 +190,29 @@ body {
 
 
 
-/* === How It Works Section (fixed layout) === */
+/* === How It Works Section (final layout) === */
 .how-it-works-section {
   padding: 140px 0 80px;
   background-color: #ffffff;
   color: #3b2f2a;
 }
 
+/* Outer full-width background band */
 .how-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: stretch;
+  width: 100%;
   background-color: #cfaea0;
-  max-width: 1200px;
-  margin: 0 auto;
   overflow: hidden;
 }
 
+/* Inner wrapper to control text width */
 .how-text {
-  flex: 1 1 60%;
-  padding: 60px;
+  flex: 0 0 60%;
+  max-width: 900px;
+  padding: 60px 60px 60px 80px;
   box-sizing: border-box;
 }
 
@@ -225,13 +227,15 @@ body {
   margin-bottom: 10px;
 }
 
-/* --- Image block --- */
+/* --- Image block on right --- */
 .how-image {
   flex: 0 0 40%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   background-color: #cfaea0;
+  padding-right: 60px; /* adds nice space between image and page edge */
+  box-sizing: border-box;
 }
 
 .how-image img {
@@ -266,15 +270,17 @@ body {
     flex-direction: column;
   }
 
-  .how-image {
-    order: -1;
-    width: 100%;
-  }
-
   .how-text {
     padding: 40px 20px;
   }
+
+  .how-image {
+    order: -1;
+    padding: 0;
+    justify-content: center;
+  }
 }
+
 
 
 
