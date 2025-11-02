@@ -289,25 +289,23 @@ body {
 
 
 
-/* === About Us Page (matching How It Works layout) === */
+/* === About Us Page (refined with white margins) === */
 .about-page {
-  background-color: #fff;
-  padding-top: 140px; /* for fixed header space */
+  background-color: #ffffff;
+  padding-top: 140px; /* header space */
+  padding-bottom: 120px; /* white space below beige band */
 }
 
-/* Full-width beige band */
+/* Beige band with white side margins */
 .about-band {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
   background-color: #d8bcb1;
+  width: 90%;                /* creates narrow white margins on sides */
+  margin: 0 auto;            /* centers beige band */
+  border-radius: 8px;        /* soft edges (optional) */
+  padding: 80px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 80px 0;
   box-sizing: border-box;
 }
 
@@ -315,7 +313,8 @@ body {
 .about-content {
   max-width: 900px;
   width: 100%;
-  padding: 0 40px;
+  padding: 0 40px;           /* inner padding adds space before image */
+  box-sizing: border-box;
 }
 
 .about-content h2 {
@@ -335,9 +334,10 @@ body {
 }
 
 .buddy-img {
-  width: 50px; /* half-size image */
+  width: 50px;
   height: auto;
   flex-shrink: 0;
+  margin-left: 10px;        /* space between image and left edge */
 }
 
 .buddy-row p {
@@ -347,13 +347,13 @@ body {
   margin: 0;
 }
 
-/* Add comfortable white space below beige section */
-.about-page {
-  padding-bottom: 120px;
-}
-
-/* Responsive layout */
+/* Responsive design */
 @media (max-width: 768px) {
+  .about-band {
+    width: 95%;
+    padding: 60px 0;
+  }
+
   .buddy-row {
     flex-direction: column;
     text-align: center;
@@ -361,6 +361,7 @@ body {
 
   .buddy-img {
     width: 70px;
+    margin-left: 0;
     margin-bottom: 10px;
   }
 
@@ -368,7 +369,6 @@ body {
     text-align: center;
   }
 }
-
 
 
 
