@@ -237,7 +237,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: #cfaea0;
+  background-color: #d8bcb1; /* before #cfaea0 */
   padding-right: 60px; /* adds right-hand spacing */
   box-sizing: border-box;
 }
