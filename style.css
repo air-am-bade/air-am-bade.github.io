@@ -190,28 +190,32 @@ body {
 
 
 
-/* === How It Works Section (final layout) === */
+/* === How It Works Section (full-width fix) === */
 .how-it-works-section {
   padding: 140px 0 80px;
-  background-color: #ffffff;
+  background-color: #fff;
   color: #3b2f2a;
+  overflow-x: hidden; /* prevent scrollbars on wide screens */
 }
 
-/* Outer full-width background band */
-.how-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
-  width: 100%;
+/* Full-width beige band */
+.how-band {
+  width: 100vw; /* force full viewport width */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   background-color: #cfaea0;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
   overflow: hidden;
 }
 
-/* Inner wrapper to control text width */
+/* Text section */
 .how-text {
   flex: 0 0 60%;
-  max-width: 900px;
   padding: 60px 60px 60px 80px;
   box-sizing: border-box;
 }
@@ -227,14 +231,14 @@ body {
   margin-bottom: 10px;
 }
 
-/* --- Image block on right --- */
+/* Image section */
 .how-image {
   flex: 0 0 40%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   background-color: #cfaea0;
-  padding-right: 60px; /* adds nice space between image and page edge */
+  padding-right: 60px; /* adds right-hand spacing */
   box-sizing: border-box;
 }
 
@@ -245,7 +249,7 @@ body {
   display: block;
 }
 
-/* --- Signup text --- */
+/* Signup text below */
 .signup-text {
   text-align: center;
   font-size: 1.2rem;
@@ -264,10 +268,11 @@ body {
   text-decoration: underline;
 }
 
-/* --- Responsive layout --- */
+/* Responsive stack for mobile */
 @media (max-width: 900px) {
-  .how-container {
+  .how-band {
     flex-direction: column;
+    align-items: center;
   }
 
   .how-text {
@@ -280,6 +285,7 @@ body {
     justify-content: center;
   }
 }
+
 
 
 
