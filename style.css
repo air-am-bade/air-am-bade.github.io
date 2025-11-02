@@ -199,16 +199,18 @@ body {
 
 .how-container {
   display: flex;
+  flex-direction: row; /* ensure side-by-side layout */
   justify-content: space-between;
   align-items: stretch;
   background-color: #cfaea0;
   margin: 0 auto;
   max-width: 1200px;
+  min-height: 400px; /* ensures a balanced height */
 }
 
 .how-text {
-  flex: 2;
-  padding: 60px 60px 60px 80px;
+  flex: 0 0 60%;
+  padding: 60px 50px 60px 80px;
   background-color: #cfaea0;
 }
 
@@ -224,19 +226,22 @@ body {
 }
 
 .how-image {
-  flex: 1;
-  background-color: #cfaea0;
+  flex: 0 0 40%; /* right-hand column width */
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #cfaea0;
+  overflow: hidden;
 }
 
 .how-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
+/* Signup text */
 .signup-text {
   text-align: center;
   font-size: 1.2rem;
@@ -255,18 +260,19 @@ body {
   text-decoration: underline;
 }
 
-/* === Responsive Design === */
+/* Responsive layout for smaller screens */
 @media (max-width: 900px) {
   .how-container {
     flex-direction: column;
   }
 
-  .how-text {
-    padding: 40px 20px;
+  .how-image {
+    order: -1; /* image appears above text on mobile */
+    flex: 0 0 auto;
   }
 
-  .how-image {
-    order: -1; /* show image on top for mobile */
+  .how-text {
+    padding: 40px 20px;
   }
 }
 
