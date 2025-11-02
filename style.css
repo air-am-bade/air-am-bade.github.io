@@ -289,80 +289,83 @@ body {
 
 
 
-/* === About Us Page (isolated and refined) === */
+/* === About Us Page (final refined version) === */
 .about-us-page {
   background-color: #ffffff;
-  padding-top: 140px; /* space for header */
-  padding-bottom: 120px; /* white area below */
+  padding-top: 140px; /* space for fixed header */
+  padding-bottom: 120px; /* white space below beige band */
 }
 
+/* Beige central band with white space on both sides */
 .about-us-band {
   background-color: #d8bcb1;
-  width: 92%;           /* leaves white margins on both sides */
-  margin: 0 auto;       /* center beige section */
+  width: 90%; /* white margins on left and right */
+  margin: 0 auto;
   border-radius: 6px;
   padding: 80px 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   box-sizing: border-box;
 }
 
-.about-us-band .about-content {
+/* Content wrapper inside beige area */
+.about-content {
   max-width: 900px;
   width: 100%;
-  padding: 0 50px;      /* adds left/right padding inside beige area */
+  padding: 0 40px; /* space from left/right beige edge */
+  text-align: left;
   box-sizing: border-box;
 }
 
-.about-us-band h2 {
+.about-content h2 {
   font-size: 1.8rem;
   font-weight: bold;
   color: #3b2f2a;
   margin-bottom: 50px;
-  text-align: left;
 }
 
-.about-us-band .buddy-row {
+/* Buddy rows — image left, text right */
+.buddy-row {
   display: flex;
   align-items: center;
   gap: 25px;
   margin-bottom: 40px;
 }
 
-.about-us-band .buddy-img {
-  width: 50px;          /* small images */
+.buddy-img {
+  width: 60px; /* smaller images */
   height: auto;
   flex-shrink: 0;
-  margin-left: 20px;    /* more space from beige edge */
+  margin-left: 20px; /* space from beige left edge */
 }
 
-.about-us-band .buddy-row p {
+.buddy-row p {
   color: #3b2f2a;
   font-size: 1rem;
   line-height: 1.6;
   margin: 0;
 }
 
-/* Responsive */
+/* Responsive behavior */
 @media (max-width: 768px) {
   .about-us-band {
     width: 95%;
     padding: 60px 0;
   }
 
-  .about-us-band .buddy-row {
+  .buddy-row {
     flex-direction: column;
     text-align: center;
   }
 
-  .about-us-band .buddy-img {
+  .buddy-img {
     width: 70px;
     margin-left: 0;
     margin-bottom: 10px;
   }
 
-  .about-us-band h2 {
+  .about-content h2 {
     text-align: center;
   }
 }
