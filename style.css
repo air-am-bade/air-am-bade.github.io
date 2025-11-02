@@ -188,3 +188,86 @@ body {
   }
 }
 
+
+
+/* === How It Works Section === */
+.how-it-works-section {
+  padding: 140px 0 80px;
+  background-color: #ffffff;
+  color: #3b2f2a;
+}
+
+.how-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: #cfaea0;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.how-text {
+  flex: 2;
+  padding: 60px 60px 60px 80px;
+  background-color: #cfaea0;
+}
+
+.how-text h3 {
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.how-text p {
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.how-image {
+  flex: 1;
+  background-color: #cfaea0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.how-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.signup-text {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 60px;
+  color: #3b2f2a;
+}
+
+.signup-link {
+  font-weight: bold;
+  text-decoration: none;
+  color: #3b2f2a;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* === Responsive Design === */
+@media (max-width: 900px) {
+  .how-container {
+    flex-direction: column;
+  }
+
+  .how-text {
+    padding: 40px 20px;
+  }
+
+  .how-image {
+    order: -1; /* show image on top for mobile */
+  }
+}
+
+
