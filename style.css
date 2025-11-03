@@ -21,7 +21,6 @@ body {
   z-index: 1000;
 }
 
-/* Logo stays left, nav centered using absolute positioning */
 .logo-container {
   position: absolute;
   left: 30px;
@@ -41,7 +40,6 @@ body {
   color: #000;
 }
 
-/* Centered navigation */
 .nav-bar {
   display: flex;
   gap: 10px;
@@ -62,27 +60,25 @@ body {
 }
 
 .nav-link.active {
-  background-color: #d8bcb1; /* active page color */
+  background-color: #d8bcb1;
 }
 
-/* === Main Section === */
-
-/* Home Section */
+/* === Home Section === */
 .home-section {
-  text-align: center;
+  position: relative;
+  padding: 0; /* remove padding; handled in .home-text */
 }
 
-/* Decorative top band above home text */
 .home-top-band {
-  height: 60px;
   background-color: #e9d4cb;
+  height: 80px; /* adjustable height for visual effect */
   width: 100%;
 }
 
-/* Home text content */
 .home-text {
   background-color: #d8bcb1;
-  padding: 40px 20px 80px;
+  text-align: center;
+  padding: 60px 20px 80px; /* top padding accounts for band */
 }
 
 .home-text h1 {
@@ -187,7 +183,6 @@ body {
   margin-right: auto;
 }
 
-/* Responsive layout for small screens */
 @media (max-width: 900px) {
   .buddy-container {
     flex-direction: column;
@@ -274,7 +269,6 @@ body {
   text-decoration: underline;
 }
 
-/* Responsive stack for mobile */
 @media (max-width: 900px) {
   .how-band {
     flex-direction: column;
@@ -292,10 +286,10 @@ body {
   }
 }
 
-/* === About Us Section === */
+/* === About Us Page === */
 .about-us-page {
   background-color: #fff;
-  padding-top: 120px;   /* reduced top padding for balance */
+  padding-top: 120px; /* reduced top spacing */
   padding-bottom: 120px;
 }
 
@@ -350,7 +344,6 @@ body {
   margin: 0;
 }
 
-/* Responsive behavior */
 @media (max-width: 768px) {
   .about-us-band {
     width: 100%;
