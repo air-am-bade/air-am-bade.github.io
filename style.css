@@ -15,7 +15,7 @@ body {
   background-color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: center; /* center content horizontally */
+  justify-content: center;
   padding: 10px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
@@ -69,29 +69,30 @@ body {
 
 /* Home Section */
 .home-section {
-  position: relative;
-  background-color: #d8bcb1;
   text-align: center;
-  padding: 80px 20px 80px; /* adjusted top padding for decorative band */
 }
 
-/* Decorative top band */
-.home-section::before {
-  content: "";
-  display: block;
-  height: 60px; /* height of top band */
+/* Decorative top band above home text */
+.home-top-band {
+  height: 60px;
   background-color: #e9d4cb;
   width: 100%;
 }
 
-.home-section h1 {
+/* Home text content */
+.home-text {
+  background-color: #d8bcb1;
+  padding: 40px 20px 80px;
+}
+
+.home-text h1 {
   color: #ffffff;
   font-size: 1.8rem;
   margin-bottom: 30px;
   font-weight: bold;
 }
 
-.home-section p {
+.home-text p {
   color: #000000;
   font-size: 1rem;
   line-height: 1.9;
@@ -99,7 +100,7 @@ body {
   max-width: 1010px;
 }
 
-.home-section .final-line {
+.home-text .final-line {
   margin-top: 40px;
   font-style: italic;
   font-weight: bold;
@@ -207,7 +208,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Full-width beige band */
 .how-band {
   width: 100vw;
   position: relative;
@@ -274,6 +274,7 @@ body {
   text-decoration: underline;
 }
 
+/* Responsive stack for mobile */
 @media (max-width: 900px) {
   .how-band {
     flex-direction: column;
@@ -291,14 +292,13 @@ body {
   }
 }
 
-/* === About Us Page === */
+/* === About Us Section === */
 .about-us-page {
   background-color: #fff;
-  padding-top: 120px; /* reduced top padding for balance */
+  padding-top: 120px;   /* reduced top padding for balance */
   padding-bottom: 120px;
 }
 
-/* Beige full-width band */
 .about-us-band {
   background-color: #d8bcb1;
   width: 100vw;
@@ -314,7 +314,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Content container shifted right */
 .about-content {
   max-width: 900px;
   width: 100%;
@@ -351,6 +350,7 @@ body {
   margin: 0;
 }
 
+/* Responsive behavior */
 @media (max-width: 768px) {
   .about-us-band {
     width: 100%;
