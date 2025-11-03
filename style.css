@@ -15,13 +15,12 @@ body {
   background-color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: center; /* center content horizontally */
+  justify-content: center;
   padding: 10px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
 
-/* Logo stays left, nav centered using absolute positioning */
 .logo-container {
   position: absolute;
   left: 30px;
@@ -41,7 +40,6 @@ body {
   color: #000;
 }
 
-/* Centered navigation */
 .nav-bar {
   display: flex;
   gap: 10px;
@@ -62,38 +60,10 @@ body {
 }
 
 .nav-link.active {
-  background-color: #d8bcb1; /* active page color */
-}
-
-/* === Main Section === */
-.home-section {
   background-color: #d8bcb1;
-  text-align: center;
-  padding: 140px 20px 80px; /* top padding accounts for fixed header */
 }
 
-.home-section h1 {
-  color: #ffffff; /* white caption */
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-  font-weight: bold;
-}
-
-.home-section p {
-  color: #000000;
-  font-size: 1rem; /* before 1.2rem */
-  line-height: 1.9;
-  margin: 15px auto;
-  max-width: 1010px;  /* text block width, 950px before */
-}
-
-.home-section .final-line {
-  margin-top: 40px;
-  font-style: italic;
-  font-weight: bold;
-}
-
-/* === Responsive Fix === */
+/* === Responsive Header === */
 @media (max-width: 768px) {
   .main-header {
     flex-direction: column;
@@ -113,16 +83,43 @@ body {
   }
 }
 
-
-/* === Why Join Page === */
-.why-join-section {
-  padding: 140px 60px 80px; /* space for fixed header */
+/* === Home Section === */
+.home-section {
+  background-color: #d8bcb1;
   text-align: center;
+  padding: 140px 20px 80px;
+}
+
+.home-section h1 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.home-section p {
+  color: #000000;
+  font-size: 1rem;
+  line-height: 1.9;
+  margin: 15px auto;
+  max-width: 1010px;
+}
+
+.home-section .final-line {
+  margin-top: 40px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* === Why Join Section === */
+.why-join-section {
   background-color: #e9d4cb;
+  padding: 140px 60px 80px;
+  text-align: center;
 }
 
 .why-join-section h2 {
-  font-size: 1.6rem; /* before 2rem*/
+  font-size: 1.6rem;
   font-weight: bold;
   margin-bottom: 40px;
 }
@@ -175,7 +172,7 @@ body {
   margin-right: auto;
 }
 
-/* Responsive layout for small screens */
+/* Responsive layout for Why Join */
 @media (max-width: 900px) {
   .buddy-container {
     flex-direction: column;
@@ -188,32 +185,22 @@ body {
   }
 }
 
-
-
-/* === How It Works Section (full-width fix) === */
+/* === How It Works Section === */
 .how-it-works-section {
-  padding: 140px 0 80px;
   background-color: #fff;
+  padding: 140px 20px 80px;
   color: #3b2f2a;
-  overflow-x: hidden; /* prevent scrollbars on wide screens */
 }
 
-/* Full-width beige band */
 .how-band {
-  width: 100vw; /* force full viewport width */
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  background-color: #d8bcb1; /* before #d0afa0 */
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
+  background-color: #d8bcb1;
   overflow: hidden;
 }
 
-/* Text section */
 .how-text {
   flex: 0 0 60%;
   padding: 60px 60px 60px 80px;
@@ -231,14 +218,12 @@ body {
   margin-bottom: 10px;
 }
 
-/* Image section */
 .how-image {
   flex: 0 0 40%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: #d8bcb1; /* before #cfaea0 */
-  padding-right: 60px; /* adds right-hand spacing */
+  padding-right: 60px;
   box-sizing: border-box;
 }
 
@@ -246,10 +231,8 @@ body {
   max-width: 100%;
   height: auto;
   object-fit: contain;
-  display: block;
 }
 
-/* Signup text below */
 .signup-text {
   text-align: center;
   font-size: 1.2rem;
@@ -268,7 +251,7 @@ body {
   text-decoration: underline;
 }
 
-/* Responsive stack for mobile */
+/* Responsive How It Works */
 @media (max-width: 900px) {
   .how-band {
     flex-direction: column;
@@ -286,50 +269,34 @@ body {
   }
 }
 
-
-
-
-/* === About Us Page (final, aligned and spaced) === */
+/* === About Us Section === */
 .about-us-page {
   background-color: #fff;
-  padding-top: 140px; /* account for fixed header */
-  padding-bottom: 120px; /* white space at bottom */
+  padding: 140px 20px 120px;
 }
 
-/* Beige full-width band (like How It Works) */
 .about-us-band {
   background-color: #d8bcb1;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  padding: 80px 0;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  padding: 80px 20px;
   box-sizing: border-box;
 }
 
-/* Content container shifted right */
 .about-content {
   max-width: 900px;
   width: 100%;
-  padding-left: 120px; /* controls how far from left edge */
-  padding-right: 40px;
-  box-sizing: border-box;
+  padding-left: 20px;
 }
 
 .about-content h2 {
-  color: #3b2f2a;
   font-size: 1.8rem;
-  margin-bottom: 50px;
   font-weight: bold;
-  text-align: left;
+  margin-bottom: 50px;
 }
 
-/* Buddy rows: image left, text right */
 .buddy-row {
   display: flex;
   align-items: center;
@@ -338,45 +305,39 @@ body {
 }
 
 .buddy-img {
-  width: 50px; /* small, like your preferred version */
-  height: auto;
+  width: 50px;
   flex-shrink: 0;
 }
 
 .buddy-row p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #3b2f2a;
   margin: 0;
 }
 
-/* Responsive behavior */
 @media (max-width: 768px) {
   .about-us-band {
-    width: 100%;
-    margin: 0;
-    padding: 60px 0;
+    flex-direction: column;
+    padding: 60px 20px;
+    align-items: center;
   }
 
   .about-content {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
   }
 
   .buddy-row {
     flex-direction: column;
-    text-align: center;
   }
 
   .buddy-img {
     width: 70px;
     margin-bottom: 10px;
   }
-
-  .about-content h2 {
-    text-align: center;
-  }
 }
+
 
 
 
