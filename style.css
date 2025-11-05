@@ -66,34 +66,22 @@ body {
 
 /* === Home Section === */
 .home-section {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  padding: 0; /* remove padding; handled in .home-text */
 }
 
-/* Make sure bands are visible and separate from text block */
-.home-top-band,
-.home-bottom-band {
+.home-top-band {
   background-color: #e9d4cb;
-  height: 100px;
+  height: 80px; /* adjustable height for visual effect */
   width: 100%;
-  flex-shrink: 0;            /* prevents collapsing */
-  display: block;
 }
 
-/* Middle block stands out */
 .home-text {
   background-color: #d8bcb1;
-  padding: 60px 20px;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1200px;
-  box-sizing: border-box;
+  text-align: center;
+  padding: 60px 20px 80px; /* top padding accounts for band */
 }
 
-/* Keep text styles */
 .home-text h1 {
   color: #ffffff;
   font-size: 1.8rem;
