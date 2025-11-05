@@ -101,14 +101,9 @@ main {
 
 .home-text {
   background-color: #d8bcb1;
+  padding: 60px 20px;
   width: 100%;
-  padding: 60px 0;
-}
-
-.home-text-inner {
-  max-width: 1010px;
-  margin: 0 auto;
-  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 
