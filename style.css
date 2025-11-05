@@ -213,9 +213,7 @@ main {
   }
 }
 
-/* === How It Works Section ===
-   - keep the image large by removing extra padding that used to squeeze it
-*/
+/* === How It Works Section === */
 .how-it-works-section {
   padding: 140px 0 80px;
   background-color: #fff;
@@ -235,7 +233,6 @@ main {
   justify-content: space-between;
   align-items: stretch;
   overflow: hidden;
-  box-sizing: border-box;
 }
 
 .how-text {
@@ -255,27 +252,23 @@ main {
   margin-bottom: 10px;
 }
 
-/* ensure the how-image column gives plenty of room and centers the graphic */
 .how-image {
   flex: 0 0 40%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   background-color: #d8bcb1;
+  padding-right: 60px;
   box-sizing: border-box;
-  padding: 30px; /* small padding but not enough to squeeze the image */
 }
 
-/* make the image scale up nicely; width:100% inside its column */
 .how-image img {
-  width: 100%;
-  max-width: 700px; /* limit to a sensible max on very large screens */
+  max-width: 100%;
   height: auto;
   object-fit: contain;
   display: block;
 }
 
-/* signup text */
 .signup-text {
   text-align: center;
   font-size: 1.2rem;
@@ -306,13 +299,8 @@ main {
 
   .how-image {
     order: -1;
-    padding: 20px;
+    padding: 0;
     justify-content: center;
-    width: 100%;
-  }
-
-  .how-image img {
-    max-width: 420px;
   }
 }
 
