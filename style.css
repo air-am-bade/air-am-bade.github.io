@@ -1,3 +1,8 @@
+/* === Root / header sizing helper === */
+:root {
+  --header-height: 70px; /* adjust if header height changes */
+}
+
 /* === Global Styles === */
 body {
   font-family: Arial, sans-serif;
@@ -5,20 +10,26 @@ body {
   color: #3b2f2a;
   margin: 0;
   scroll-behavior: smooth;
+  /* add top padding so fixed header doesn't cover content */
+  padding-top: var(--header-height);
+  box-sizing: border-box;
 }
 
 /* === Header Navigation === */
 .main-header {
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
   background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 0;
+  padding: 10px 0; /* this is inside the fixed header */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  box-sizing: border-box;
 }
 
 .logo-container {
@@ -43,6 +54,7 @@ body {
 .nav-bar {
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
 .nav-link {
@@ -63,29 +75,50 @@ body {
   background-color: #d8bcb1;
 }
 
-
-/* === Home Section === */
-.home-section {
-  position: relative;
-  padding: 0;
+/* === Main layout helpers === */
+main {
+  /* ensure main content is not hidden by fixed header — body has padding already */
+  box-sizing: border-box;
 }
 
+/* === Home Section ===
+   - center middle .home-text between top & bottom bands
+   - ensure bands are visible and equal
+*/
+.home-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* make section tall enough to occupy full viewport minus header */
+  min-height: calc(100vh - var(--header-height));
+  box-sizing: border-box;
+}
+
+/* Top AND bottom bands are the same color/height */
 .home-top-band,
 .home-bottom-band {
   background-color: #e9d4cb;
   height: 80px;
   width: 100%;
+  flex-shrink: 0;      /* prevent collapsing in flex layout */
+  box-sizing: border-box;
 }
 
+/* Middle text container — centered horizontally and vertically (via margin auto) */
 .home-text {
   background-color: #d8bcb1;
   text-align: center;
   padding: 60px 20px;
-  margin: 0 auto;
-  max-width: 1200px;
+  margin: auto 20px;       /* auto vertical margins center it between bands; horizontal spacing */
+  max-width: 1010px;       /* keep line-length comfortable */
+  width: calc(100% - 40px);
   box-sizing: border-box;
+  /* optional visual polish */
+  border-radius: 6px;
 }
 
+/* Home text styles */
 .home-text h1 {
   color: #ffffff;
   font-size: 1.8rem;
@@ -106,33 +139,6 @@ body {
   font-style: italic;
   font-weight: bold;
 }
-
-
-/* === Responsive Fix === */
-@media (max-width: 768px) {
-  .main-header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logo-container {
-    position: static;
-    margin-bottom: 10px;
-  }
-
-  .nav-bar {
-    position: static;
-    transform: none;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .home-top-band,
-  .home-bottom-band {
-    height: 60px;
-  }
-}
-
 
 /* === Why Join Section === */
 .why-join-section {
@@ -207,8 +213,9 @@ body {
   }
 }
 
-
-/* === How It Works Section === */
+/* === How It Works Section ===
+   - keep the image large by removing extra padding that used to squeeze it
+*/
 .how-it-works-section {
   padding: 140px 0 80px;
   background-color: #fff;
@@ -228,6 +235,7 @@ body {
   justify-content: space-between;
   align-items: stretch;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .how-text {
@@ -247,21 +255,27 @@ body {
   margin-bottom: 10px;
 }
 
+/* ensure the how-image column gives plenty of room and centers the graphic */
 .how-image {
   flex: 0 0 40%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #d8bcb1;
+  box-sizing: border-box;
+  padding: 30px; /* small padding but not enough to squeeze the image */
 }
 
+/* make the image scale up nicely; width:100% inside its column */
 .how-image img {
-  max-width: 100%;
+  width: 100%;
+  max-width: 700px; /* limit to a sensible max on very large screens */
   height: auto;
   object-fit: contain;
   display: block;
 }
 
+/* signup text */
 .signup-text {
   text-align: center;
   font-size: 1.2rem;
@@ -292,16 +306,20 @@ body {
 
   .how-image {
     order: -1;
-    padding: 0;
+    padding: 20px;
     justify-content: center;
+    width: 100%;
+  }
+
+  .how-image img {
+    max-width: 420px;
   }
 }
-
 
 /* === About Us Page === */
 .about-us-page {
   background-color: #fff;
-  padding-top: 120px;
+  padding-top: 120px; /* reduced top spacing */
   padding-bottom: 120px;
 }
 
