@@ -85,10 +85,12 @@ main {
 .home-section {
   width: 100%;
   text-align: center;
-  padding: 0;
   display: flex;
   flex-direction: column;
+  padding-top: var(--header-height); /* push down content so top band fully visible */
+  box-sizing: border-box;
 }
+
 
 /* Equal top + bottom bands */
 .home-top-band,
