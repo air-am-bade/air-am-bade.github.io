@@ -65,20 +65,27 @@ body {
 
 /* === Home Section === */
 .home-section {
-  position: relative;
-  padding: 0; /* remove padding; handled in .home-text */
+  width: 100%;
+  text-align: center;
+  padding: 0;
 }
 
-.home-top-band {
+/* Top AND bottom bands are the same color/height */
+.home-top-band,
+.home-bottom-band {
   background-color: #e9d4cb;
-  height: 80px; /* adjustable height for visual effect */
+  height: 80px; /* make equal for symmetry - adjust if needed */
   width: 100%;
 }
 
+/* Middle text container */
 .home-text {
   background-color: #d8bcb1;
-  text-align: center;
-  padding: 60px 20px 80px; /* top padding accounts for band */
+  padding: 60px 20px; /* clean consistent spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-text h1 {
@@ -120,7 +127,14 @@ body {
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  /* Reduce band height on small screens if desired */
+  .home-top-band,
+  .home-bottom-band {
+    height: 60px;
+  }
 }
+
 
 /* === Why Join Section === */
 .why-join-section {
