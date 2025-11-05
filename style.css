@@ -63,6 +63,7 @@ body {
   background-color: #d8bcb1;
 }
 
+
 /* === Home Section === */
 .home-section {
   width: 100%;
@@ -74,18 +75,17 @@ body {
 .home-top-band,
 .home-bottom-band {
   background-color: #e9d4cb;
-  height: 80px; /* make equal for symmetry - adjust if needed */
+  height: 80px;
   width: 100%;
+  display: block;
 }
 
 /* Middle text container */
 .home-text {
   background-color: #d8bcb1;
-  padding: 60px 20px; /* clean consistent spacing */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 60px 20px;
+  margin: 0 auto;       /* centers the block */
+  max-width: 1200px;    /* keeps it visually in the middle */
 }
 
 .home-text h1 {
