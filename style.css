@@ -99,15 +99,18 @@ main {
   flex-shrink: 0;
 }
 
-/* Center text block between the bands */
 .home-text {
   background-color: #d8bcb1;
-  padding: 60px 20px;
-  margin: 0 auto;        /* centers horizontally */
-  max-width: 1010px;
   width: 100%;
-  box-sizing: border-box;
+  padding: 60px 0;
 }
+
+.home-text-inner {
+  max-width: 1010px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 
 
 /* === Why Join Section === */
