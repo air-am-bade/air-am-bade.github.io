@@ -67,19 +67,23 @@ body {
 /* === Home Section === */
 .home-section {
   position: relative;
-  padding: 0; /* remove padding; handled in .home-text */
+  padding: 0;
 }
 
-.home-top-band {
+.home-top-band,
+.home-bottom-band {
   background-color: #e9d4cb;
-  height: 80px; /* adjustable height for visual effect */
+  height: 80px;
   width: 100%;
 }
 
 .home-text {
   background-color: #d8bcb1;
   text-align: center;
-  padding: 60px 20px 80px; /* top padding accounts for band */
+  padding: 60px 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  box-sizing: border-box;
 }
 
 .home-text h1 {
@@ -123,7 +127,6 @@ body {
     justify-content: center;
   }
 
-  /* Reduce band height on small screens if desired */
   .home-top-band,
   .home-bottom-band {
     height: 60px;
@@ -204,6 +207,7 @@ body {
   }
 }
 
+
 /* === How It Works Section === */
 .how-it-works-section {
   padding: 140px 0 80px;
@@ -247,10 +251,8 @@ body {
   flex: 0 0 40%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   background-color: #d8bcb1;
-  padding-right: 60px;
-  box-sizing: border-box;
 }
 
 .how-image img {
@@ -295,10 +297,11 @@ body {
   }
 }
 
+
 /* === About Us Page === */
 .about-us-page {
   background-color: #fff;
-  padding-top: 120px; /* reduced top spacing */
+  padding-top: 120px;
   padding-bottom: 120px;
 }
 
