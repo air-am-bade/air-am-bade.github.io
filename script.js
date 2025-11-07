@@ -1,14 +1,13 @@
 // === Single-page navigation highlight ===
-// Only top-level sections to avoid nested section issues
-const sections = document.querySelectorAll("main > section");
+const sections = document.querySelectorAll("main > section"); // only top-level sections
 const navLinks = document.querySelectorAll(".nav-link");
 
-// Get header height dynamically from CSS variable
+// Get header height dynamically
 const headerHeight = parseInt(
   getComputedStyle(document.documentElement).getPropertyValue('--header-height')
 );
 
-// Function to highlight nav link based on scroll position
+// Highlight nav link on scroll
 function highlightNavOnScroll() {
   let currentSectionId = "";
 
@@ -21,13 +20,13 @@ function highlightNavOnScroll() {
 
   navLinks.forEach(link => {
     link.classList.remove("active");
-    if (link.getAttribute("href").includes(currentSectionId)) {
+    if (link.getAttribute("href") === `#${currentSectionId}`) {
       link.classList.add("active");
     }
   });
 }
 
-// Add scroll listener
+// Scroll listener
 window.addEventListener("scroll", highlightNavOnScroll);
 
 // Smooth scroll on nav link click
@@ -36,14 +35,14 @@ navLinks.forEach(link => {
     const target = document.querySelector(link.getAttribute("href"));
     if (target) {
       e.preventDefault();
-      const offsetTop = target.offsetTop - headerHeight;
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
       window.scrollTo({
-        top: offsetTop,
+        top: targetPosition,
         behavior: "smooth"
       });
     }
   });
 });
 
-// Initialize highlight on page load
+// Initialize nav highlight
 highlightNavOnScroll();
