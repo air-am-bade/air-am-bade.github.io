@@ -96,7 +96,7 @@ main {
 }
 
 .home-text {
-  max-width: 1010px;
+  max-width: 1020px; /* before  1010px*/
   margin: 0 auto;
   color: #000;
   line-height: 1.9;
@@ -112,7 +112,7 @@ main {
 
 .home-text p {
   max-width: 900px;
-  margin: 15px auto;
+  margin: 19px auto; /* before  15px */
 }
 
 
