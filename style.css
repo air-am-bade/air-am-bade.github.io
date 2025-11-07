@@ -121,15 +121,12 @@ main {
 
 
 /* === Why Join Section === */
-#why-join {
-  scroll-margin-top: var(--header-height);
-}
-
 
 .why-join-section {
   padding: 140px 60px 80px;
   text-align: center;
   background-color: #e9d4cb;
+  scroll-margin-top: var(--header-height);
 }
 
 .why-join-section h2 {
