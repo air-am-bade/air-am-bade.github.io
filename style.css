@@ -86,20 +86,21 @@ main {
 .home-section {
   background-color: #d8bcb1;
   width: 100%;
-  min-height: calc(100vh - var(--header-height)); /* full screen minus header */
+  min-height: calc(100vh - var(--header-height));
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center;      /* centers horizontally */
+  align-items: center;          /* centers vertically */
   padding: 40px 20px;
   box-sizing: border-box;
+  text-align: center;           /* ensures inline text stays centered */
 }
-
 
 .home-text {
   max-width: 1010px;
   margin: 0 auto;
   color: #000;
   line-height: 1.9;
+  text-align: center;           /* forces <p> and <h1> to center */
 }
 
 .home-text h1 {
