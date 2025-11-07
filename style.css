@@ -86,10 +86,14 @@ main {
 .home-section {
   background-color: #d8bcb1;
   width: 100%;
-  text-align: center;
-  padding: calc(var(--header-height) + 60px) 20px 80px;
+  min-height: calc(100vh - var(--header-height)); /* full screen minus header */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
   box-sizing: border-box;
 }
+
 
 .home-text {
   max-width: 1010px;
