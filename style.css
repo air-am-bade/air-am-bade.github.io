@@ -92,15 +92,6 @@ main {
 }
 
 
-/* Equal top + bottom bands */
-.home-top-band,
-.home-bottom-band {
-  background-color: #e9d4cb;
-  height: 100px;       /* MAKE THEM BIGGER/SAME HERE */
-  width: 100%;
-  flex-shrink: 0;
-}
-
 .home-text {
   background-color: #d8bcb1;
   padding: 60px 20px;
