@@ -116,7 +116,7 @@ main {
 }
 
 .home-text p.final-line {
-    margin-top: 63px; /* space between last lines */
+  padding-top: 63px;
 }
 
 
