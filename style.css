@@ -115,6 +115,9 @@ main {
   margin: 21px auto; /* before  15px */
 }
 
+.home-text p.final-line {
+    margin-top: 63px; /* space between last lines */
+}
 
 
 /* === Why Join Section === */
