@@ -1,5 +1,6 @@
 // === Single-page navigation highlight ===
-const sections = document.querySelectorAll("main section");
+// Only top-level sections to avoid nested section issues
+const sections = document.querySelectorAll("main > section");
 const navLinks = document.querySelectorAll(".nav-link");
 
 // Get header height dynamically from CSS variable
@@ -12,7 +13,7 @@ function highlightNavOnScroll() {
   let currentSectionId = "";
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - headerHeight - 10; // 10px buffer
+    const sectionTop = section.offsetTop - headerHeight - 5; // small buffer
     if (window.scrollY >= sectionTop) {
       currentSectionId = section.id;
     }
@@ -20,8 +21,6 @@ function highlightNavOnScroll() {
 
   navLinks.forEach(link => {
     link.classList.remove("active");
-
-    // Match href ending with section id
     if (link.getAttribute("href").includes(currentSectionId)) {
       link.classList.add("active");
     }
