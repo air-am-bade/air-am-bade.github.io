@@ -4,13 +4,19 @@
 }
 
 /* === Global Styles === */
-body {
+html, body {
+  height: 100%;
+  margin: 0;
   font-family: Arial, sans-serif;
   background-color: #e9d4cb;
   color: #3b2f2a;
-  margin: 0;
   scroll-behavior: smooth;
   box-sizing: border-box;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 /* === Header Navigation === */
@@ -27,7 +33,6 @@ body {
   padding: 10px 0; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  box-sizing: border-box;
 }
 
 .logo-container {
@@ -75,22 +80,27 @@ body {
 
 /* === Main layout helper === */
 main {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* === Section Defaults === */
+section {
+  padding-top: calc(var(--header-height) + 20px);
+  min-height: calc(100vh - var(--header-height));
   box-sizing: border-box;
 }
 
 /* ************************************************************ */
 /* ====================== HOME SECTION ========================= */
 /* ************************************************************ */
-
 .home-section {
   background-color: #d8bcb1;
   width: 100%;
-  min-height: calc(100vh - var(--header-height));
   display: flex;
   justify-content: center;
-  align-items: flex-start;   /* fixed (no overlap on other pages) */
-  padding: 140px 20px 60px;  /* ensures content sits correctly under header */
-  box-sizing: border-box;
+  align-items: flex-start;
+  padding: 140px 20px 60px;
   text-align: center;
 }
 
@@ -121,12 +131,11 @@ main {
 /* ************************************************************ */
 /* ===================== WHY JOIN SECTION ===================== */
 /* ************************************************************ */
-
 .why-join-section {
   padding: 160px 30px 100px;
   text-align: center;
   background-color: #e9d4cb;
-  scroll-margin-top: var(--header-height); /* stops overlap */
+  scroll-margin-top: var(--header-height);
 }
 
 .why-join-section h2 {
@@ -183,7 +192,6 @@ main {
   margin-right: auto;
 }
 
-/* Mobile tweaks */
 @media (max-width: 900px) {
   .buddy-container {
     flex-direction: column;
@@ -199,13 +207,12 @@ main {
 /* ************************************************************ */
 /* ================== HOW IT WORKS SECTION ===================== */
 /* ************************************************************ */
-
 .how-it-works-section {
   padding: 160px 0 100px;
   background-color: #fff;
   color: #3b2f2a;
   overflow-x: hidden;
-  scroll-margin-top: var(--header-height); /* stops overlap */
+  scroll-margin-top: var(--header-height);
 }
 
 .how-band {
@@ -294,12 +301,11 @@ main {
 /* ************************************************************ */
 /* ====================== ABOUT US PAGE ======================== */
 /* ************************************************************ */
-
 .about-us-page {
   background-color: #fff;
   padding-top: 160px;
   padding-bottom: 120px;
-  scroll-margin-top: var(--header-height); /* stops overlap */
+  scroll-margin-top: var(--header-height);
 }
 
 .about-us-band {
