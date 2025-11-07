@@ -2,12 +2,17 @@
 const sections = document.querySelectorAll("main section");
 const navLinks = document.querySelectorAll(".nav-link");
 
+// Get header height dynamically from CSS variable
+const headerHeight = parseInt(
+  getComputedStyle(document.documentElement).getPropertyValue('--header-height')
+);
+
 // Function to highlight nav link based on scroll position
 function highlightNavOnScroll() {
   let currentSectionId = "";
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 160; // slightly above header
+    const sectionTop = section.offsetTop - headerHeight - 10; // 10px buffer
     if (window.scrollY >= sectionTop) {
       currentSectionId = section.id;
     }
@@ -26,14 +31,15 @@ function highlightNavOnScroll() {
 // Add scroll listener
 window.addEventListener("scroll", highlightNavOnScroll);
 
-// Optional: smooth scroll on nav link click (if not handled by CSS scroll-behavior)
+// Smooth scroll on nav link click
 navLinks.forEach(link => {
   link.addEventListener("click", e => {
     const target = document.querySelector(link.getAttribute("href"));
     if (target) {
       e.preventDefault();
+      const offsetTop = target.offsetTop - headerHeight;
       window.scrollTo({
-        top: target.offsetTop - 130, // adjust for fixed header
+        top: offsetTop,
         behavior: "smooth"
       });
     }
@@ -42,5 +48,3 @@ navLinks.forEach(link => {
 
 // Initialize highlight on page load
 highlightNavOnScroll();
-
-
