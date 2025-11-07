@@ -81,22 +81,33 @@ main {
   box-sizing: border-box;
 }
 
-/* === Home Section === */
+
+/* === Home Section (single color, centered text) === */
 .home-section {
+  background-color: #d8bcb1;
   width: 100%;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  padding-top: var(--header-height); /* push down content so top band fully visible */
+  padding: calc(var(--header-height) + 60px) 20px 80px;
   box-sizing: border-box;
 }
 
-
 .home-text {
-  background-color: #d8bcb1;
-  padding: 60px 20px;
-  width: 100%;
-  box-sizing: border-box;
+  max-width: 1010px;
+  margin: 0 auto;
+  color: #000;
+  line-height: 1.9;
+}
+
+.home-text h1 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.home-text p {
+  max-width: 900px;
+  margin: 15px auto;
 }
 
 
