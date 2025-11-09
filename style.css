@@ -230,16 +230,15 @@ section {
 
 /* === About Us Page === */
 .about-us-page {
-  background-color: #e9d4cb;                          /* single background color */
+  background-color: #e9d4cb;
   width: 100%;
-  height: calc(100vh - var(--header-height));         /* fits exactly one screen */
-  padding: 0 20px;
-  box-sizing: border-box;
-  
-  display: flex;                                      /* vertically centered */
+  height: calc(100vh - var(--header-height));
+  display: flex;
   justify-content: center;
   align-items: center;
-  text-align: left;
+  padding: 0 20px;
+  box-sizing: border-box;
+  overflow: hidden;                 /* prevents previous page content showing */
 }
 
 .about-content {
@@ -258,39 +257,42 @@ section {
 .buddy-row {
   display: flex;
   align-items: center;
-  gap: 25px;
-  margin-bottom: 40px;
+  gap: 20px;
+  margin-bottom: 35px;
+  padding-left: 30px;              /* spacing from left */
 }
 
 .buddy-img {
-  width: 60px;
+  width: 45px;                     /* smaller images */
   height: auto;
   flex-shrink: 0;
 }
 
 .buddy-row p {
-  line-height: 1.6;
   margin: 0;
   font-size: 1rem;
+  line-height: 1.6;
+  flex: 1;                         /* ensures text stays next to image */
 }
 
 @media (max-width: 768px) {
+
   .about-us-page {
-    padding: 40px 20px;
-    text-align: center;
+    padding: 40px 15px;
+    height: auto;                  /* avoids cut-off on small screens */
   }
 
   .buddy-row {
-    flex-direction: column;
+    flex-direction: row;           /* keeps text beside image even on tablets */
+    padding-left: 0;
   }
 
   .buddy-img {
-    width: 80px;
+    width: 55px;
   }
 
   .about-content h2 {
     text-align: center;
   }
 }
-
 
