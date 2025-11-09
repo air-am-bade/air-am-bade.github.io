@@ -54,15 +54,17 @@ section {
 .home-section {
   background-color: #d8bcb1;
   width: 100%;
-  min-height: calc(100vh - var(--header-height)); /* fills viewport minus header */
+  /* Full viewport height minus header, including padding */
+  height: calc(100vh - var(--header-height));
   display: flex;
   flex-direction: column;
   justify-content: center;  /* vertical centering */
   align-items: center;      /* horizontal centering */
-  padding: 0 20px;          /* only horizontal padding */
-  box-sizing: border-box;
+  padding: 0 20px;          /* horizontal padding only */
+  box-sizing: border-box;   /* include padding in height */
   text-align: center;
 }
+
 
 .home-text {
   max-width: 1200px;
