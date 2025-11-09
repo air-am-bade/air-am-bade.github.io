@@ -81,6 +81,11 @@ main {
   box-sizing: border-box;
 }
 
+/* ADDED */
+section {
+  scroll-margin-top: var(--header-height);
+}
+/* ADDED */
 
 /* === Home Section (single color, centered text) === */
 .home-section {
