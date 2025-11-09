@@ -71,6 +71,9 @@ section {
   margin: 0 auto;
   line-height: 1.9;
 }
+.home-text h1 {
+  color: #ffffff;
+}
 
 /* === Why Join Section === */
 .why-join-section {
