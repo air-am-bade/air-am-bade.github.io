@@ -85,6 +85,21 @@ main {
 section {
   scroll-margin-top: var(--header-height);
 }
+
+/* anchor element that offsets the fragment target by header height */
+.anchor {
+  display: block;
+  position: relative;
+  top: calc(-1 * var(--header-height));
+  height: 0;
+  visibility: hidden; /* keep it invisible, but present for the browser target */
+}
+
+/* keep the rest of layout intact */
+:root {
+  --header-height: 70px;
+}
+
 /* ADDED */
 
 /* === Home Section (single color, centered text) === */
