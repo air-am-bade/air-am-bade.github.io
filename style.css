@@ -70,10 +70,13 @@ section {
   max-width: 1200px;
   margin: 0 auto;
   line-height: 1.9;
+  color: #000;            /* parent text stays black */
 }
+
 .home-text h1 {
-  color: #ffffff;
+  color: #ffffff !important;  /* heading overrides parent color */
 }
+
 
 /* === Why Join Section === */
 .why-join-section {
