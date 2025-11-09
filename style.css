@@ -27,14 +27,7 @@ body {
   box-sizing: border-box;
 }
 
-.logo-container {
-  position: absolute;
-  left: 30px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
+.logo-container { position: absolute; left: 30px; display: flex; align-items: center; gap: 8px; }
 .logo { width: 45px; height: auto; }
 .site-title { font-weight: bold; font-size: 1.2rem; color: #000; }
 
@@ -57,13 +50,18 @@ section {
   box-sizing: border-box;
 }
 
-/* Home Section */
+/* === Home Section (vertically centered text) === */
 .home-section {
   background-color: #d8bcb1;
   width: 100%;
-  min-height: calc(100vh - var(--header-height));
-  padding: 40px 20px;
+  min-height: calc(100vh - var(--header-height)); /* fills viewport minus header */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* vertical centering */
+  align-items: center;      /* horizontal centering */
+  padding: 0 20px;          /* only horizontal padding */
   box-sizing: border-box;
+  text-align: center;
 }
 
 .home-text {
@@ -72,10 +70,10 @@ section {
   line-height: 1.9;
 }
 
-/* Why Join Section */
+/* === Why Join Section === */
 .why-join-section {
   width: 100%;
-  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100vh - var(--header-height)); /* fills viewport */
   padding: 80px 60px;
   text-align: center;
   background-color: #e9d4cb;
@@ -106,11 +104,7 @@ section {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.buddy-icon {
-  display: block;
-  width: 70px;
-  margin: 0 auto 20px;
-}
+.buddy-icon { display: block; width: 70px; margin: 0 auto 20px; }
 
 .buddy-box h3 {
   text-align: center;
@@ -119,10 +113,7 @@ section {
   color: #3b2f2a;
 }
 
-.buddy-box p {
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
+.buddy-box p { line-height: 1.6; margin-bottom: 10px; }
 
 .final-line {
   text-align: center;
@@ -136,11 +127,6 @@ section {
 }
 
 @media (max-width: 900px) {
-  .buddy-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-  }
-
+  .buddy-container { flex-direction: column; align-items: center; gap: 40px; }
   .buddy-box { width: 90%; }
 }
