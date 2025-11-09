@@ -1,3 +1,8 @@
+/* === Root / header sizing helper === */
+:root {
+  --header-height: 70px; /* adjust if header height changes */
+}
+
 /* === Global Styles === */
 body {
   font-family: Arial, sans-serif;
@@ -5,20 +10,26 @@ body {
   color: #3b2f2a;
   margin: 0;
   scroll-behavior: smooth;
+  /* add top padding so fixed header doesn't cover content */
+  padding-top: var(--header-height);
+  box-sizing: border-box;
 }
 
 /* === Header Navigation === */
 .main-header {
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
   background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 0;
+  padding: 10px 0; /* this is inside the fixed header */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  box-sizing: border-box;
 }
 
 .logo-container {
@@ -43,6 +54,7 @@ body {
 .nav-bar {
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
 .nav-link {
@@ -63,75 +75,53 @@ body {
   background-color: #d8bcb1;
 }
 
-
-/* === Home Section === */
-.home-section {
-  position: relative;
-  padding: 0; /* remove padding; handled in .home-text */
+/* === Main layout helpers === */
+main {
+  /* ensure main content is not hidden by fixed header — body has padding already */
+  box-sizing: border-box;
 }
 
-.home-top-band {
-  background-color: #e9d4cb;
-  height: 80px; /* adjustable height for visual effect */
+
+/* === Home Section (single color, centered text) === */
+.home-section {
+  background-color: #d8bcb1;
   width: 100%;
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  justify-content: center;      /* centers horizontally */
+  align-items: center;          /* centers vertically */
+  padding: 40px 20px;
+  box-sizing: border-box;
+  text-align: center;           /* ensures inline text stays centered */
 }
 
 .home-text {
-  background-color: #d8bcb1;
-  text-align: center;
-  padding: 60px 20px 80px; /* top padding accounts for band */
+  max-width: 1600px; /* before  1010px*/
+  margin: 0 auto;
+  color: #000;
+  line-height: 1.9;
+  text-align: center;           /* forces <p> and <h1> to center */
 }
 
 .home-text h1 {
-  color: #ffffff;
+  color: #fff;
   font-size: 1.8rem;
   margin-bottom: 30px;
   font-weight: bold;
 }
 
 .home-text p {
-  color: #000000;
-  font-size: 1rem;
-  line-height: 1.9;
-  margin: 15px auto;
-  max-width: 1010px;
+  max-width: 1600px;
+  margin: 21px auto; /* before  15px */
 }
 
-.home-text .final-line {
-  margin-top: 40px;
-  font-style: italic;
-  font-weight: bold;
-}
-
-
-/* === Responsive Fix === */
-@media (max-width: 768px) {
-  .main-header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logo-container {
-    position: static;
-    margin-bottom: 10px;
-  }
-
-  .nav-bar {
-    position: static;
-    transform: none;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  /* Reduce band height on small screens if desired */
-  .home-top-band,
-  .home-bottom-band {
-    height: 60px;
-  }
+.home-text p.final-line {
+  padding-top: 63px;
 }
 
 
 /* === Why Join Section === */
+
 .why-join-section {
   padding: 140px 60px 80px;
   text-align: center;
