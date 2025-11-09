@@ -1,38 +1,33 @@
 /* === Root / header sizing helper === */
 :root {
-  --header-height: 70px; /* adjust if header height changes */
+  --header-height: 70px;
 }
 
-/* === Global Styles === */
+/* Global */
 html, body {
-  height: 100%;
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
   background-color: #e9d4cb;
   color: #3b2f2a;
   scroll-behavior: smooth;
-  box-sizing: border-box;
-  overflow-x: hidden; /* prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-
-/* === Header Navigation === */
+/* Header */
 .main-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: var(--header-height);
-  background-color: #ffffff;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 0; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  z-index: 9999;
 }
 
 .logo-container {
@@ -45,7 +40,6 @@ html, body {
 
 .logo {
   width: 45px;
-  height: auto;
 }
 
 .site-title {
@@ -56,332 +50,76 @@ html, body {
 
 .nav-bar {
   display: flex;
-  gap: 10px;
-  align-items: center;
+  gap: 12px;
 }
 
 .nav-link {
   text-decoration: none;
   color: #3b2f2a;
-  padding: 10px 20px;
-  border-radius: 5px;
-  background-color: #ffffff;
   font-weight: bold;
-  transition: all 0.3s ease;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: 0.3s;
 }
 
-.nav-link:hover {
-  background-color: #f5e8e3;
-}
-
+.nav-link:hover,
 .nav-link.active {
   background-color: #d8bcb1;
 }
 
-/* === Main layout helper === */
-main {
-  min-height: 100vh;
-  box-sizing: border-box;
-}
-
-/* === Section Defaults === */
+/* Each section fully fills the screen below the fixed header */
 section {
-  padding-top: calc(var(--header-height) + 20px);
   min-height: calc(100vh - var(--header-height));
+  padding-top: calc(var(--header-height) + 40px);
   box-sizing: border-box;
 }
 
-/* ************************************************************ */
-/* ====================== HOME SECTION ========================= */
-/* ************************************************************ */
+/* Home */
 .home-section {
-  background-color: #d8bcb1;
-  width: 100%;
+  background: #d8bcb1;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 140px 20px 60px;
+  padding: 140px 20px;
   text-align: center;
 }
 
 .home-text {
-  max-width: 1600px;
-  margin: 0 auto;
-  color: #000;
+  max-width: 1000px;
   line-height: 1.9;
-  text-align: center;
 }
 
-.home-text h1 {
-  color: #fff;
-  font-size: 2rem;
-  margin-bottom: 35px;
-  font-weight: bold;
-}
-
-.home-text p {
-  max-width: 1600px;
-  margin: 21px auto;
-}
-
-.home-text p.final-line {
-  padding-top: 63px;
-}
-
-/* ************************************************************ */
-/* ===================== WHY JOIN SECTION ===================== */
-/* ************************************************************ */
+/* Why Join */
 .why-join-section {
-  padding: 160px 30px 100px;
+  background: #e9d4cb;
   text-align: center;
-  background-color: #e9d4cb;
-  scroll-margin-top: var(--header-height);
+  padding: 140px 20px;
 }
 
-.why-join-section h2 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 40px;
-}
-
-.buddy-container {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto 60px;
-}
-
-.buddy-box {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 30px 25px;
-  width: 450px;
-  text-align: left;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.buddy-icon {
-  display: block;
-  width: 70px;
-  margin: 0 auto 20px;
-}
-
-.buddy-box h3 {
-  text-align: center;
-  margin-bottom: 15px;
-  font-size: 1.3rem;
-  color: #3b2f2a;
-}
-
-.buddy-box p {
-  line-height: 1.6;
-  color: #3b2f2a;
-  margin-bottom: 10px;
-}
-
-.final-line {
-  text-align: center;
-  font-style: italic;
-  font-weight: bold;
-  color: #3b2f2a;
-  margin-top: 40px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (max-width: 900px) {
-  .buddy-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .buddy-box {
-    width: 90%;
-  }
-}
-
-/* ************************************************************ */
-/* ================== HOW IT WORKS SECTION ===================== */
-/* ************************************************************ */
+/* How It Works */
 .how-it-works-section {
-  padding: 160px 0 100px;
-  background-color: #fff;
-  color: #3b2f2a;
-  overflow-x: hidden;
-  scroll-margin-top: var(--header-height);
+  background: #fff;
+  padding: 140px 0 100px;
 }
 
 .how-band {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  background-color: #d8bcb1;
+  background: #d8bcb1;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  overflow: hidden;
 }
 
-.how-text {
-  flex: 0 0 60%;
-  padding: 60px 60px 60px 80px;
-  box-sizing: border-box;
-}
-
-.how-text h3 {
-  font-weight: bold;
-  margin-bottom: 20px;
-  font-size: 1.3rem;
-}
-
-.how-text p {
-  line-height: 1.7;
-  margin-bottom: 10px;
-}
-
-.how-image {
-  flex: 0 0 40%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  background-color: #d8bcb1;
-  padding-right: 60px;
-  box-sizing: border-box;
-}
-
-.how-image img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-.signup-text {
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-top: 60px;
-  color: #3b2f2a;
-}
-
-.signup-link {
-  font-weight: bold;
-  text-decoration: none;
-  color: #3b2f2a;
-}
-
-.signup-link:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 900px) {
-  .how-band {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .how-text {
-    padding: 40px 20px;
-  }
-
-  .how-image {
-    order: -1;
-    padding: 0;
-    justify-content: center;
-  }
-}
-
-/* ************************************************************ */
-/* ====================== ABOUT US PAGE ======================== */
-/* ************************************************************ */
+/* About Us */
 .about-us-page {
-  background-color: #fff;
-  padding-top: 160px;
-  padding-bottom: 120px;
-  scroll-margin-top: var(--header-height);
+  background: #fff;
+  padding: 140px 0 100px;
 }
 
 .about-us-band {
-  background-color: #d8bcb1;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  background: #d8bcb1;
   padding: 80px 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  box-sizing: border-box;
 }
 
 .about-content {
-  max-width: 900px;
-  width: 100%;
-  padding-left: 120px;
-  padding-right: 40px;
-  box-sizing: border-box;
-}
-
-.about-content h2 {
-  color: #3b2f2a;
-  font-size: 1.8rem;
-  margin-bottom: 50px;
-  font-weight: bold;
-  text-align: left;
-}
-
-.buddy-row {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  margin-bottom: 40px;
-}
-
-.buddy-img {
-  width: 50px;
-  height: auto;
-  flex-shrink: 0;
-}
-
-.buddy-row p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #3b2f2a;
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  .about-us-band {
-    width: 100%;
-    margin: 0;
-    padding: 50px 0;
-  }
-
-  .about-content {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .buddy-row {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .buddy-img {
-    width: 70px;
-    margin-bottom: 10px;
-  }
-
-  .about-content h2 {
-    text-align: center;
-  }
+  max-width: 1000px;
+  margin: auto;
 }
