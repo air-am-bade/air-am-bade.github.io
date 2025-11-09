@@ -145,60 +145,62 @@ section {
 /* === How It Works Section === */
 .how-it-works-section {
   width: 100%;
-  height: calc(100vh - var(--header-height)); /* exactly one screen */
+  height: calc(100vh - var(--header-height)); /* entire page visible */
   background-color: #ffffff;
   color: #3b2f2a;
-  box-sizing: border-box;
-  padding: 0;                  
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;  
+  justify-content: space-between; /* keeps signup visible */
+  box-sizing: border-box;
 }
 
-/* upper colored band */
+/* top colored area */
 .how-band {
-  width: 100%;
   background-color: #d8bcb1;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-  padding: 40px 20px;
-}
-
-.how-text {
-  flex: 1 1 400px;
-  max-width: 650px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.how-image {
-  flex: 1 1 300px;
+  flex: 1;                             /* takes remaining space */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  gap: 40px;
+}
+
+/* text area */
+.how-text {
+  flex: 0 1 500px;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+/* make sure image never becomes taller than text */
+.how-image {
+  flex: 0 1 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .how-image img {
   max-width: 100%;
+  max-height: 300px;     /* ✅ image no taller than text */
   height: auto;
   display: block;
+  object-fit: contain;
 }
 
-/* white signup band */
+/* white signup band — always visible */
 .signup-text {
   background-color: #ffffff;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   padding: 20px;
-  margin: 0;                  
-  color: #3b2f2a;
+  margin: 0;
 }
 
+/* link styling */
 .signup-link {
   font-weight: bold;
   text-decoration: none;
@@ -208,9 +210,20 @@ section {
   text-decoration: underline;
 }
 
+/* mobile layout */
 @media (max-width: 900px) {
   .how-band {
     flex-direction: column;
+    padding: 20px;
+  }
+
+  .how-image img {
+    max-height: 200px;
+  }
+
+  .how-text {
+    max-width: 90%;
   }
 }
+
 
