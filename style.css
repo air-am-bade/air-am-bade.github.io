@@ -100,6 +100,11 @@ section {
   --header-height: 70px;
 }
 
+section {
+  scroll-margin-top: var(--header-height);
+}
+
+
 /* ADDED */
 
 /* === Home Section (single color, centered text) === */
