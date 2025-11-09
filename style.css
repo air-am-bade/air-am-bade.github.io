@@ -263,7 +263,7 @@ section {
 }
 
 .buddy-img {
-  width: 45px;                     /* smaller images */
+  width: 80px;                     /* images size. before 45px*/
   height: auto;
   flex-shrink: 0;
 }
