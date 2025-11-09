@@ -10,8 +10,7 @@ body {
   color: #3b2f2a;
   margin: 0;
   scroll-behavior: smooth;
-  /* add top padding so fixed header doesn't cover content */
-  padding-top: var(--header-height);
+  padding-top: var(--header-height); /* prevents content from being under header */
   box-sizing: border-box;
 }
 
@@ -26,7 +25,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 0; /* this is inside the fixed header */
+  padding: 10px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   box-sizing: border-box;
@@ -75,57 +74,30 @@ body {
   background-color: #d8bcb1;
 }
 
-/* === Main layout helpers === */
-main {
-  /* ensure main content is not hidden by fixed header — body has padding already */
-  box-sizing: border-box;
-}
-
-/* ADDED */
+/* === Anchor Offset for Smooth Navigation === */
 section {
-  scroll-margin-top: var(--header-height);
+  scroll-margin-top: calc(var(--header-height) + 10px);
 }
 
-/* anchor element that offsets the fragment target by header height */
-.anchor {
-  display: block;
-  position: relative;
-  top: calc(-1 * var(--header-height));
-  height: 0;
-  visibility: hidden; /* keep it invisible, but present for the browser target */
-}
-
-/* keep the rest of layout intact */
-:root {
-  --header-height: 70px;
-}
-
-section {
-  scroll-margin-top: var(--header-height);
-}
-
-
-/* ADDED */
-
-/* === Home Section (single color, centered text) === */
+/* === Home Section === */
 .home-section {
   background-color: #d8bcb1;
   width: 100%;
-  min-height: calc(100vh - var(--header-height));
-  display: flex;
-  justify-content: center;      /* centers horizontally */
-  align-items: center;          /* centers vertically */
-  padding: 40px 20px;
+  padding: 120px 20px 80px; /* top padding ensures content is below fixed header */
   box-sizing: border-box;
-  text-align: center;           /* ensures inline text stays centered */
+  text-align: center;
+
+  /* REMOVE this: it was causing the section to be taller than screen
+     min-height: calc(100vh - var(--header-height));
+  */
 }
 
 .home-text {
-  max-width: 1600px; /* before  1010px*/
+  max-width: 1600px;
   margin: 0 auto;
   color: #000;
   line-height: 1.9;
-  text-align: center;           /* forces <p> and <h1> to center */
+  text-align: center;
 }
 
 .home-text h1 {
@@ -137,20 +109,19 @@ section {
 
 .home-text p {
   max-width: 1600px;
-  margin: 21px auto; /* before  15px */
+  margin: 21px auto;
 }
 
 .home-text p.final-line {
   padding-top: 63px;
 }
 
-
 /* === Why Join Section === */
-
 .why-join-section {
   padding: 140px 60px 80px;
   text-align: center;
   background-color: #e9d4cb;
+  box-sizing: border-box;
 }
 
 .why-join-section h2 {
