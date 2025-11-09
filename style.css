@@ -138,3 +138,97 @@ section {
   .buddy-container { flex-direction: column; align-items: center; gap: 40px; }
   .buddy-box { width: 90%; }
 }
+
+
+
+
+/* === How It Works Section === */
+.how-it-works-section {
+  width: 100%;
+  min-height: calc(100vh - var(--header-height)); /* fills screen cleanly */
+  background-color: #ffffff;
+  color: #3b2f2a;
+  box-sizing: border-box;
+  padding: 100px 0 80px;
+}
+
+/* upper colored band */
+.how-band {
+  width: 100%;
+  background-color: #d8bcb1;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 40px 0;
+}
+
+.how-text {
+  flex: 1 1 500px;
+  max-width: 700px;
+  padding: 40px 40px 40px 60px;
+  box-sizing: border-box;
+}
+
+.how-text h3 {
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.how-text p {
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.how-image {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.how-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* white band text below */
+.signup-text {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 60px;
+  color: #3b2f2a;
+  padding: 30px 20px;
+  background-color: #ffffff; /* white band */
+}
+
+.signup-link {
+  font-weight: bold;
+  text-decoration: none;
+  color: #3b2f2a;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .how-band {
+    flex-direction: column;
+  }
+
+  .how-text {
+    padding: 30px 20px;
+  }
+
+  .how-image {
+    padding: 0;
+  }
+}
+
