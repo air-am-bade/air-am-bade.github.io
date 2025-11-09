@@ -227,3 +227,70 @@ section {
 }
 
 
+
+/* === About Us Page === */
+.about-us-page {
+  background-color: #e9d4cb;                          /* single background color */
+  width: 100%;
+  height: calc(100vh - var(--header-height));         /* fits exactly one screen */
+  padding: 0 20px;
+  box-sizing: border-box;
+  
+  display: flex;                                      /* vertically centered */
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.about-content {
+  max-width: 900px;
+  width: 100%;
+  color: #3b2f2a;
+}
+
+.about-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 50px;
+  font-weight: bold;
+  color: #3b2f2a;
+}
+
+.buddy-row {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.buddy-img {
+  width: 60px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.buddy-row p {
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .about-us-page {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .buddy-row {
+    flex-direction: column;
+  }
+
+  .buddy-img {
+    width: 80px;
+  }
+
+  .about-content h2 {
+    text-align: center;
+  }
+}
+
+
