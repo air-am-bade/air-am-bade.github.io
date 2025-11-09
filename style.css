@@ -184,7 +184,7 @@ section {
 
 .how-image img {
   max-width: 100%;
-  max-height: 300px;     /* ✅ image no taller than text */
+  max-height: 400px;     /* before 300px */
   height: auto;
   display: block;
   object-fit: contain;
