@@ -296,3 +296,30 @@ section {
   }
 }
 
+
+.buddy-img-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.linkedin-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(30%, 30%); /* optional: moves it slightly out of the image corner */
+  width: 24px;
+  height: 24px;
+}
+
+.linkedin-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.linkedin-icon:hover img {
+  transform: scale(1.1);
+}
+
+
