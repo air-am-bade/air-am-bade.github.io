@@ -2,6 +2,11 @@
   --header-height: 70px;
 }
 
+/* === Global Styles === */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #e9d4cb;
@@ -9,10 +14,9 @@ body {
   margin: 0;
   scroll-behavior: smooth;
   padding-top: var(--header-height);
-  box-sizing: border-box;
 }
 
-/* Header */
+/* === Header === */
 .main-header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -24,14 +28,35 @@ body {
   padding: 10px 0;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   z-index: 1000;
-  box-sizing: border-box;
 }
 
-.logo-container { position: absolute; left: 30px; display: flex; align-items: center; gap: 8px; }
-.logo { width: 45px; height: auto; }
-.site-title { font-weight: bold; font-size: 1.2rem; color: #000; }
+.logo-container {
+  position: absolute;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-.nav-bar { display: flex; gap: 10px; align-items: center; }
+.logo {
+  width: 45px;
+  height: auto;
+}
+
+.site-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.nav-bar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .nav-link {
   text-decoration: none;
   color: #3b2f2a;
@@ -41,51 +66,46 @@ body {
   font-weight: bold;
   transition: all 0.3s ease;
 }
+
 .nav-link:hover { background-color: #f5e8e3; }
 .nav-link.active { background-color: #d8bcb1; }
 
 /* Anchor scroll offset */
 section {
   scroll-margin-top: var(--header-height);
-  box-sizing: border-box;
 }
 
-/* === Home Section (vertically centered text) === */
+/* === Home Section === */
 .home-section {
   background-color: #d8bcb1;
   width: 100%;
-  /* Full viewport height minus header, including padding */
   height: calc(100vh - var(--header-height));
   display: flex;
   flex-direction: column;
-  justify-content: center;  /* vertical centering */
-  align-items: center;      /* horizontal centering */
-  padding: 0 20px;          /* horizontal padding only */
-  box-sizing: border-box;   /* include padding in height */
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
   text-align: center;
 }
-
 
 .home-text {
   max-width: 1200px;
   margin: 0 auto;
   line-height: 1.9;
-  color: #000;            /* parent text stays black */
+  color: #000;
 }
 
 .home-text h1 {
-  color: #ffffff !important;  /* heading overrides parent color */
+  color: #ffffff !important;
 }
-
 
 /* === Why Join Section === */
 .why-join-section {
   width: 100%;
-  min-height: calc(100vh - var(--header-height)); /* fills viewport */
+  min-height: calc(100vh - var(--header-height));
   padding: 80px 60px;
   text-align: center;
   background-color: #e9d4cb;
-  box-sizing: border-box;
 }
 
 .why-join-section h2 {
@@ -134,47 +154,33 @@ section {
   margin-right: auto;
 }
 
-@media (max-width: 900px) {
-  .buddy-container { flex-direction: column; align-items: center; gap: 40px; }
-  .buddy-box { width: 90%; }
-}
-
-
-
-/* === ADDED === */
 /* === How It Works Section === */
 .how-it-works-section {
   width: 100%;
-  height: calc(100vh - var(--header-height)); /* entire page visible */
+  height: calc(100vh - var(--header-height));
   background-color: #ffffff;
   color: #3b2f2a;
   padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* keeps signup visible */
-  box-sizing: border-box;
+  justify-content: space-between;
 }
 
-/* top colored area */
 .how-band {
   background-color: #d8bcb1;
-  flex: 1;                             /* takes remaining space */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
-  box-sizing: border-box;
   gap: 40px;
 }
 
-/* text area */
 .how-text {
   flex: 0 1 500px;
   max-width: 600px;
-  box-sizing: border-box;
 }
 
-/* make sure image never becomes taller than text */
 .how-image {
   flex: 0 1 400px;
   display: flex;
@@ -184,13 +190,13 @@ section {
 
 .how-image img {
   max-width: 100%;
-  max-height: 400px;     /* before 300px */
+  max-height: 400px;
   height: auto;
   display: block;
   object-fit: contain;
 }
 
-/* white signup band — always visible */
+/* White signup band */
 .signup-text {
   background-color: #ffffff;
   text-align: center;
@@ -200,35 +206,15 @@ section {
   margin: 0;
 }
 
-/* link styling */
 .signup-link {
   font-weight: bold;
   text-decoration: none;
   color: #ad1010;
 }
-.signup-link:hover {
-  text-decoration: underline;
-}
 
-/* mobile layout */
-@media (max-width: 900px) {
-  .how-band {
-    flex-direction: column;
-    padding: 20px;
-  }
+.signup-link:hover { text-decoration: underline; }
 
-  .how-image img {
-    max-height: 200px;
-  }
-
-  .how-text {
-    max-width: 90%;
-  }
-}
-
-
-
-/* === About Us Page === */
+/* === About Us Section === */
 .about-us-page {
   background-color: #e9d4cb;
   width: 100%;
@@ -237,7 +223,6 @@ section {
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  box-sizing: border-box;
   overflow: hidden;
 }
 
@@ -254,19 +239,17 @@ section {
   color: #3b2f2a;
 }
 
-
-
 /* === Two-Column Layout === */
 .two-columns {
   display: flex;
-  justify-content: space-evenly; /* centered blocks left/right */
+  justify-content: space-evenly;
   gap: 50px;
   width: 100%;
 }
 
 .column {
   flex: 1;
-  display: flex;                 /* centers each column */
+  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -279,15 +262,13 @@ section {
   font-weight: bold;
 }
 
-
-
-/* === Profile Rows === */
+/* === Profile Rows & Images === */
 .buddy-row {
   display: flex;
   align-items: center;
   gap: 20px;
   margin-bottom: 35px;
-  padding-left: 0;              /* cleaned: center alignment */
+  padding-left: 0;
 }
 
 .buddy-row p {
@@ -296,25 +277,20 @@ section {
   line-height: 1.6;
 }
 
-
-
-/* === Images === */
 .buddy-img-wrapper {
   position: relative;
   display: inline-block;
 }
 
 .buddy-img {
-  width: 90px;     
-  height: 110px;   
+  width: 90px;
+  height: 110px;
   object-fit: cover;
   flex-shrink: 0;
   border-radius: 6px;
 }
 
-
-
-/* === social-icon === */
+/* === Social Icons === */
 .social-icon {
   position: absolute;
   bottom: 0;
@@ -335,30 +311,49 @@ section {
   transform: scale(1.1);
 }
 
-
-
-/* === Responsive (Mobile) === */
-@media (max-width: 768px) {
-
-  .about-us-page {
-    padding: 40px 15px;
-    height: auto;
+/* === Responsive / Mobile === */
+@media (max-width: 900px) {
+  .buddy-container { 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 40px; 
   }
-
-  .about-content h2 {
-    text-align: center;
-  }
-
-  .two-columns {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .buddy-img {
-    width: 55px;
-    height: 70px; /* keeps proportion for mobile */
-  }
+  .buddy-box { width: 90%; padding: 20px 15px; }
+  .buddy-box h3 { font-size: 1.2rem; }
+  .buddy-box p { font-size: 0.95rem; }
+  .how-band { flex-direction: column; padding: 20px; gap: 20px; }
+  .how-text { max-width: 90%; }
+  .how-image img { max-height: 200px; }
+  .signup-text { font-size: 1rem; padding: 15px; }
 }
 
+@media (max-width: 768px) {
+  :root { --header-height: 60px; }
+  body { padding-top: var(--header-height); }
 
+  .home-section { 
+    height: auto; 
+    padding: 60px 15px 40px; 
+  }
+  .home-text h1 { font-size: 1.6rem; }
+  .home-text p { font-size: 0.95rem; }
 
+  .about-us-page { 
+    flex-direction: column; 
+    padding: 40px 15px; 
+    height: auto; 
+  }
+
+  .two-columns { flex-direction: column; gap: 30px; }
+  .column h3 { font-size: 1.1rem; margin-bottom: 20px; }
+  .buddy-row { gap: 15px; margin-bottom: 25px; }
+  .buddy-row p { font-size: 0.95rem; }
+  .buddy-img { width: 55px; height: 70px; }
+
+  .nav-bar { justify-content: center; flex-wrap: wrap; gap: 8px; }
+  .nav-link { padding: 8px 12px; font-size: 0.95rem; }
+  .logo-container { left: 15px; }
+
+  .why-join-section { padding: 40px 15px; }
+  .how-it-works-section { height: auto; padding-bottom: 40px; }
+}
