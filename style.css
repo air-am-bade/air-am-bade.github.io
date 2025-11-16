@@ -338,7 +338,7 @@ section {
 /* Column headers */
 .column h3 {
   margin-bottom: 30px;
-  font-size: 1.4rem;
+  font-size: 1.1rem; /* 90px before */
   color: #3b2f2a;
   font-weight: bold;
 }
@@ -346,7 +346,7 @@ section {
 /* Ensure all images have identical size */
 .buddy-img {
   width: 90px;    /* consistent size for all */
-  height: 90px;   /* force equal height for consistent shape */
+  height: 110px;   /* 90px before */
   object-fit: cover;
   border-radius: 6px; /* optional */
 }
