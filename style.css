@@ -323,3 +323,38 @@ section {
 }
 
 
+/*newly added: */
+/* TWO COLUMN LAYOUT */
+.two-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.column {
+  flex: 1;
+}
+
+/* Column headers */
+.column h3 {
+  margin-bottom: 30px;
+  font-size: 1.4rem;
+  color: #3b2f2a;
+  font-weight: bold;
+}
+
+/* Ensure all images have identical size */
+.buddy-img {
+  width: 90px;    /* consistent size for all */
+  height: 90px;   /* force equal height for consistent shape */
+  object-fit: cover;
+  border-radius: 6px; /* optional */
+}
+
+@media (max-width: 768px) {
+  .two-columns {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
