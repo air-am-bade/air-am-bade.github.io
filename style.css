@@ -4,7 +4,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #e9d4cb;
+  background-color: #F5CDBE;
   color: #3b2f2a;
   margin: 0;
   scroll-behavior: smooth;
@@ -42,7 +42,7 @@ body {
   transition: all 0.3s ease;
 }
 .nav-link:hover { background-color: #f5e8e3; }
-.nav-link.active { background-color: #d8bcb1; }
+.nav-link.active { background-color: #B7C8B5; }
 
 /* Anchor scroll offset */
 section {
@@ -52,7 +52,7 @@ section {
 
 /* === Home Section (vertically centered text) === */
 .home-section {
-  background-color: #d8bcb1;
+  background-color: #B7C8B5;
   width: 100%;
   /* Full viewport height minus header, including padding */
   height: calc(100vh - var(--header-height));
@@ -84,7 +84,7 @@ section {
   min-height: calc(100vh - var(--header-height)); /* fills viewport */
   padding: 80px 60px;
   text-align: center;
-  background-color: #e9d4cb;
+  background-color: #F5CDBE;
   box-sizing: border-box;
 }
 
@@ -157,7 +157,7 @@ section {
 
 /* top colored area */
 .how-band {
-  background-color: #d8bcb1;
+  background-color: #B7C8B5;
   flex: 1;                             /* takes remaining space */
   display: flex;
   justify-content: center;
@@ -230,7 +230,7 @@ section {
 
 /* === About Us Page === */
 .about-us-page {
-  background-color: #e9d4cb;
+  background-color: #F5CDBE;
   width: 100%;
   height: calc(100vh - var(--header-height));
   display: flex;
