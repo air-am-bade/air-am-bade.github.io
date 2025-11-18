@@ -41,7 +41,7 @@ body {
   font-weight: bold;
   transition: all 0.3s ease;
 }
-.nav-link:hover { background-color: #f5e8e3; }
+.nav-link:hover { background-color: #B7C8B5; }
 .nav-link.active { background-color: #B7C8B5; }
 
 /* Anchor scroll offset */
