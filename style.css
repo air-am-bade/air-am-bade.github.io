@@ -319,10 +319,11 @@ section {
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: translate(30%, 30%);
+  transform: translate(120%, -10%); 
   width: 24px;
   height: 24px;
 }
+
 
 .social-icon img {
   width: 100%;
