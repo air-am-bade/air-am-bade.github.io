@@ -89,7 +89,7 @@ section {
 }
 
 .why-join-section h2 {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: bold;
   margin-bottom: 40px;
 }
@@ -139,9 +139,6 @@ section {
   .buddy-box { width: 90%; }
 }
 
-
-
-/* === ADDED === */
 /* === How It Works Section === */
 .how-it-works-section {
   width: 100%;
