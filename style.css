@@ -112,7 +112,7 @@ section {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.buddy-icon { display: block; width: 70px; margin: 0 auto 20px; }
+.buddy-icon { display: block; width: 50px; margin: 0 auto 20px; }
 
 .buddy-box h3 {
   text-align: center;
