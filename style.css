@@ -4,7 +4,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #E7C8C0;
+  background-color: #D98F72;
   color: #3b2f2a;
   margin: 0;
   scroll-behavior: smooth;
@@ -84,7 +84,7 @@ section {
   min-height: calc(100vh - var(--header-height)); /* fills viewport */
   padding: 80px 60px;
   text-align: center;
-  background-color: #E7C8C0;
+  background-color: #D98F72;
   box-sizing: border-box;
 }
 
@@ -227,7 +227,7 @@ section {
 
 /* === About Us Page === */
 .about-us-page {
-  background-color: #E7C8C0;
+  background-color: #D98F72;
   width: 100%;
   height: calc(100vh - var(--header-height));
   display: flex;
