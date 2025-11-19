@@ -41,8 +41,8 @@ body {
   font-weight: bold;
   transition: all 0.3s ease;
 }
-.nav-link:hover { background-color: #B7C8B5; }
-.nav-link.active { background-color: #B7C8B5; }
+.nav-link:hover { background-color: #B8C7A8; }
+.nav-link.active { background-color: #B8C7A8; }
 
 /* Anchor scroll offset */
 section {
@@ -52,7 +52,7 @@ section {
 
 /* === Home Section (vertically centered text) === */
 .home-section {
-  background-color: #B7C8B5;
+  background-color: #B8C7A8;
   width: 100%;
   /* Full viewport height minus header, including padding */
   height: calc(100vh - var(--header-height));
@@ -154,7 +154,7 @@ section {
 
 /* top colored area */
 .how-band {
-  background-color: #B7C8B5;
+  background-color: #B8C7A8;
   flex: 1;                             /* takes remaining space */
   display: flex;
   justify-content: center;
