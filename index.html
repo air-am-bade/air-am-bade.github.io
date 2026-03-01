@@ -40,7 +40,6 @@
       background-color: var(--cream);
       color: var(--brown);
       padding-top: var(--header-height);
-      padding-bottom: 64px;
       -webkit-font-smoothing: antialiased;
     }
     section { scroll-margin-top: var(--header-height); }
@@ -238,7 +237,7 @@
     .why-join-section {
       background: var(--cream);
       padding: 48px 40px 40px;
-      height: 100vh;
+      height: calc(100vh - var(--header-height));
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -340,7 +339,7 @@
     .how-it-works-section {
       background: var(--sage-pale);
       padding: 56px 40px;
-      height: 100vh;
+      height: calc(100vh - var(--header-height));
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -419,7 +418,8 @@
     .about-us-page {
       background: var(--cream);
       padding: 80px 40px;
-      min-height: 100vh;
+      height: calc(100vh - var(--header-height));
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -573,9 +573,10 @@
       .floating-cta p { font-size: .82rem; }
       .floating-cta-btn { padding: 9px 24px; font-size: .85rem; }
 
-      .home-section { padding: 48px 20px; min-height: 100vh; }
-      .why-join-section { padding: 48px 20px 36px; height: auto; min-height: 100vh; }
-      .how-it-works-section { padding: 48px 20px; height: auto; min-height: 100vh; }
+      .home-section { padding: 48px 20px; min-height: calc(100vh - var(--header-height)); }
+      .why-join-section { padding: 48px 20px 36px; height: auto; min-height: calc(100vh - var(--header-height)); }
+      .how-it-works-section { padding: 48px 20px; height: auto; min-height: calc(100vh - var(--header-height)); }
+      .about-us-page { padding: 60px 20px; height: auto; min-height: calc(100vh - var(--header-height)); align-items: center; }
       .about-us-page { padding: 60px 20px; min-height: 100vh; align-items: center; }
       .portrait-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
       .portrait-name { font-size: .95rem; }
