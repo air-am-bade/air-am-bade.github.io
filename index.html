@@ -4,23 +4,499 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PhDbuddy</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Design Tokens ─── */
+    :root {
+      --header-height: 72px;
+      --sage:       #7A9E7E;
+      --sage-light: #B8C7A8;
+      --sage-pale:  #E8EFE4;
+      --cream:      #FAF8F4;
+      --terra:      #C0705A;
+      --terra-dark: #9B4F39;
+      --brown:      #3B2F2A;
+      --brown-soft: #6B5347;
+      --white:      #FFFFFF;
+      --ink:        #2A2118;
+      --muted:      #8C7B72;
+      --border:     rgba(59,47,42,.1);
+      --shadow-sm:  0 2px 12px rgba(59,47,42,.08);
+      --shadow-lg:  0 24px 64px rgba(59,47,42,.14);
+      --radius-sm:  8px;
+      --radius-md:  16px;
+      --radius-lg:  28px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --ease-out: cubic-bezier(.22,1,.36,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--cream);
+      color: var(--brown);
+      padding-top: var(--header-height);
+      -webkit-font-smoothing: antialiased;
+    }
+    section { scroll-margin-top: var(--header-height); }
+    a { color: inherit; }
+
+    /* ─── Header ─── */
+    .main-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-height);
+      background: rgba(250,248,244,.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      z-index: 1000;
+      transition: box-shadow .3s;
+    }
+    .main-header.scrolled { box-shadow: var(--shadow-sm); }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo { width: 36px; height: auto; }
+    .site-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -.01em;
+    }
+    .site-title em { color: var(--terra); font-style: italic; font-weight: 400; }
+
+    /* Desktop nav */
+    .nav-bar { display: flex; gap: 4px; align-items: center; }
+    .nav-link {
+      text-decoration: none;
+      color: var(--brown-soft);
+      font-size: .875rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 999px;
+      transition: background .22s, color .22s;
+      white-space: nowrap;
+    }
+    .nav-link:hover { background: var(--sage-pale); color: var(--brown); }
+    .nav-link.active { background: var(--sage); color: var(--white); }
+
+    /* Hamburger button */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 38px;
+      height: 38px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 8px;
+      transition: background .2s;
+    }
+    .hamburger:hover { background: var(--sage-pale); }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--brown);
+      border-radius: 2px;
+      transition: transform .28s var(--ease-out), opacity .2s;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav drawer */
+    .mobile-nav {
+      position: fixed;
+      top: var(--header-height);
+      left: 0; right: 0;
+      background: rgba(250,248,244,.98);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 12px 20px 20px;
+      gap: 4px;
+      z-index: 998;
+      box-shadow: var(--shadow-sm);
+      /* hidden by default */
+      display: none;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity .25s var(--ease-out), transform .25s var(--ease-out);
+    }
+    .mobile-nav.open {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .mobile-nav .nav-link {
+      font-size: 1rem;
+      padding: 13px 16px;
+      border-radius: var(--radius-sm);
+      width: 100%;
+    }
+
+    /* ─── Home Section ─── */
+    .home-section {
+      background: linear-gradient(160deg, var(--sage-light) 0%, #cad8bc 100%);
+      min-height: calc(100vh - var(--header-height));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .home-section::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,.22) 0%, transparent 70%);
+      top: -150px; right: -150px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .home-section::after {
+      content: '';
+      position: absolute;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, rgba(192,112,90,.1) 0%, transparent 70%);
+      bottom: -80px; left: -80px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .home-text {
+      max-width: 760px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      animation: fadeUp .9s var(--ease-out) both;
+    }
+    .home-text h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 4.5vw, 3.4rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      margin-bottom: 28px;
+    }
+    .home-text p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--brown);
+      margin-bottom: 14px;
+    }
+    .home-text .final-line {
+      margin-top: 32px;
+      margin-bottom: 0;
+      display: inline-block;
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: var(--radius-md);
+      padding: 16px 26px;
+      font-style: italic;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--brown);
+      backdrop-filter: blur(6px);
+    }
+
+    /* ─── Why Join Section ─── */
+    .why-join-section {
+      background: var(--cream);
+      padding: 96px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .why-join-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+      font-weight: 600;
+      text-align: center;
+      color: var(--ink);
+      margin-bottom: 56px;
+      letter-spacing: -.02em;
+    }
+    .why-join-section h2 em { color: var(--terra); font-style: italic; }
+
+    .buddy-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 1040px;
+      width: 100%;
+      margin: 0 auto 52px;
+    }
+    .buddy-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 38px 32px;
+      box-shadow: var(--shadow-sm);
+      transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+    .buddy-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--sage), var(--terra));
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .buddy-box:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .buddy-box:hover::before { opacity: 1; }
+    .buddy-icon { display: block; width: 48px; margin: 0 auto 22px; }
+    .buddy-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .buddy-box p {
+      font-size: .95rem;
+      line-height: 1.75;
+      color: var(--brown-soft);
+      margin-bottom: 10px;
+    }
+    .why-join-section .final-line {
+      text-align: center;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ─── How It Works Section ─── */
+    .how-it-works-section {
+      background: var(--sage-pale);
+      padding: 96px 40px 80px;
+      display: flex;
+      flex-direction: column;
+    }
+    .how-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      max-width: 1040px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .how-text h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 28px;
+      letter-spacing: -.02em;
+    }
+    .how-text p {
+      font-size: .95rem;
+      line-height: 1.8;
+      color: var(--brown-soft);
+      margin-bottom: 12px;
+      padding-left: 16px;
+      border-left: 2px solid transparent;
+      transition: border-color .2s, color .2s;
+    }
+    .how-text p:hover { border-left-color: var(--terra); color: var(--brown); }
+    .how-image { display: flex; justify-content: center; align-items: center; }
+    .how-image img {
+      max-width: 100%;
+      max-height: 420px;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      filter: drop-shadow(0 12px 32px rgba(59,47,42,.12));
+    }
+    .signup-text {
+      text-align: center;
+      margin-top: 52px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--brown-soft);
+      max-width: 1040px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .signup-link {
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--terra-dark);
+      border-bottom: 2px solid rgba(192,112,90,.4);
+      padding-bottom: 1px;
+      transition: color .2s, border-color .2s;
+    }
+    .signup-link:hover { color: var(--terra); border-color: var(--terra); }
+
+    /* ─── About Us Section ─── */
+    .about-us-page {
+      background: var(--white);
+      padding: 96px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .about-content { max-width: 860px; width: 100%; }
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    .column { display: flex; flex-direction: column; align-items: center; }
+    .column h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 32px;
+      text-align: center;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--sage-pale);
+      width: 100%;
+    }
+    .buddy-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 28px;
+      width: 100%;
+      transition: transform .25s var(--ease-out);
+    }
+    .buddy-row:hover { transform: translateX(4px); }
+    .buddy-row p { font-weight: 500; font-size: 1rem; color: var(--ink); }
+    .buddy-img-wrapper { position: relative; flex-shrink: 0; }
+    .buddy-img {
+      width: 80px;
+      height: 96px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+      border: 2px solid var(--border);
+      display: block;
+    }
+    .social-icon {
+      position: absolute;
+      bottom: -6px; right: -6px;
+      width: 26px; height: 26px;
+      background: var(--white);
+      border-radius: 50%;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      transition: transform .22s var(--ease-out);
+    }
+    .social-icon:hover { transform: scale(1.15); }
+    .social-icon img { width: 100%; height: 100%; object-fit: contain; }
+
+    /* ─── Animations ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── MOBILE (≤768px) ─── */
+    @media (max-width: 768px) {
+      :root { --header-height: 60px; }
+
+      .main-header { padding: 0 18px; }
+      .nav-bar { display: none; }          /* hide desktop nav */
+      .hamburger { display: flex; }        /* show hamburger */
+
+      .home-section { padding: 48px 20px; }
+      .home-text h1 { font-size: 1.75rem; letter-spacing: -.015em; }
+      .home-text p  { font-size: .95rem; }
+      .home-text .final-line { padding: 14px 18px; font-size: .9rem; }
+
+      .why-join-section { padding: 60px 20px; }
+      .buddy-container  { grid-template-columns: 1fr; gap: 18px; margin-bottom: 36px; }
+      .buddy-box        { padding: 28px 22px; border-radius: var(--radius-md); }
+
+      .how-it-works-section { padding: 60px 20px 56px; }
+      .how-band             { grid-template-columns: 1fr; gap: 0; }
+      .how-image            { display: none; }
+      .how-text h3          { font-size: 1.6rem; }
+      .signup-text          { margin-top: 36px; }
+
+      .about-us-page        { padding: 60px 20px; align-items: flex-start; }
+      .two-columns          { grid-template-columns: 1fr; gap: 36px; }
+      .column               { align-items: flex-start; }
+      .column h3            { text-align: left; }
+    }
+
+    /* ─── Mid-range (769–960px) ─── */
+    @media (min-width: 769px) and (max-width: 960px) {
+      .main-header { padding: 0 24px; }
+      .nav-link { padding: 7px 12px; font-size: .82rem; }
+      .buddy-container { gap: 20px; }
+      .how-band { gap: 40px; }
+    }
+  </style>
 </head>
 <body>
+
   <!-- Fixed Header -->
-  <header class="main-header">
-    <div class="logo-container">
+  <header class="main-header" id="mainHeader">
+    <a href="#home" class="logo-container">
       <img src="hands.png" alt="PhDbuddy logo" class="logo" />
       <span class="site-title">PhD<em>buddy</em></span>
-    </div>
+    </a>
 
+    <!-- Desktop nav -->
     <nav class="nav-bar">
-      <a href="#home" class="nav-link">Home</a>
-      <a href="#why-join" class="nav-link">Why Join</a>
+      <a href="#home"         class="nav-link">Home</a>
+      <a href="#why-join"     class="nav-link">Why Join</a>
       <a href="#how-it-works" class="nav-link">How It Works</a>
-      <a href="#about-us" class="nav-link">About Us</a>
+      <a href="#about-us"     class="nav-link">About Us</a>
     </nav>
+
+    <!-- Hamburger (mobile only) -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </header>
+
+  <!-- Mobile nav drawer (outside header so it slides below it) -->
+  <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <a href="#home"         class="nav-link">Home</a>
+    <a href="#why-join"     class="nav-link">Why Join</a>
+    <a href="#how-it-works" class="nav-link">How It Works</a>
+    <a href="#about-us"     class="nav-link">About Us</a>
+  </nav>
 
   <main>
 
@@ -38,10 +514,10 @@
 
     <!-- Why Join Section -->
     <section id="why-join" class="why-join-section">
-      <h2>Why Join PhD<em>buddy</em>?</h2>
+      <h2 class="reveal">Why Join PhD<em>buddy</em>?</h2>
 
       <div class="buddy-container">
-        <div class="buddy-box">
+        <div class="buddy-box reveal">
           <img src="preBuddy.png" class="buddy-icon" alt="Graduate buddy icon">
           <h3>As a Graduate Buddy</h3>
           <p>Gain a connection with people who truly understand and can relate to you.</p>
@@ -49,114 +525,176 @@
           <p>Learn from the firsthand experience of someone who has already completed their PhD and explored life after it.</p>
         </div>
 
-        <div class="buddy-box">
+        <div class="buddy-box reveal">
           <img src="postBuddy.png" class="buddy-icon" alt="Post-graduate buddy icon">
           <h3>As a Post-Graduate Buddy</h3>
-          <p>Have you ever wished you could go back to your first-year PhD self and share your hard-earned advice with them? While going back in time is not an option (yet), this is your chance to make a meaningful impact on someone else’s PhD journey.</p>
+          <p>Have you ever wished you could go back to your first-year PhD self and share your hard-earned advice with them? While going back in time is not an option (yet), this is your chance to make a meaningful impact on someone else's PhD journey.</p>
           <p>Gain a new perspective on your own experiences — you might find that all the highs and lows of your journey can become valuable lessons to share.</p>
           <p>Build new connections and help create a kinder, healthier research culture.</p>
         </div>
       </div>
 
-      <p class="final-line"><strong><em>PhD<em>buddy</em></em></strong> is about community, empathy, and making the PhD experience kinder for everyone.</p>
+      <p class="final-line reveal"><strong><em>PhD<em>buddy</em></em></strong> is about community, empathy, and making the PhD experience kinder for everyone.</p>
     </section>
 
-
     <!-- How It Works Section -->
-<section id="how-it-works" class="how-it-works-section">
-  <div class="how-band">
-    <div class="how-text">
-      <h3>How It Works</h3>
-      <p>We match PhD students with post-graduates from our team.</p>
-      <p>After you sign up, three post-graduate buddies are made available for you to connect with – you can get to know all of them and have conversations with whoever you choose or is available.</p>
-      <p>We define the structure of the conversation together based on your needs and goals.</p>
-      <p>We have open conversations with you about the non-academic, social, organizational, and mental challenges of your PhD journey.</p>
-      <p>The conversations can happen as often as the graduate and post-graduate buddies agree on.</p>
-      <p>We are not medical professionals; therefore, we are in no position to provide solutions about your personal journeys, but we are open to listening, sharing our experiences, and offering new perspectives.</p>
-      <p>These conversations will be confidential.</p>
-    </div>
-
-    <div class="how-image">
-      <img src="peoplePatternSquare.svg" alt="Decorative people pattern" />
-    </div>
-  </div>
-
-  <p class="signup-text">
-    Want to join? Sign up <a href="signup.html" class="signup-link">here</a> and share a few details about yourself so we can match you with the right buddy. It’s completely free!
-  </p>
-</section>
-
-
-<!-- About Us Section -->
-<section id="about-us" class="about-us-page">
-  <div class="about-content two-columns">
-
-    <!-- LEFT COLUMN -->
-    <div class="column">
-      <h3>Organizing Team & Post-Graduate Buddies</h3>
-
-      <!-- JONA -->
-      <div class="buddy-row">
-        <div class="buddy-img-wrapper">
-          <img src="jona.jpg" alt="Jona" class="buddy-img" />
-          <a href="https://www.linkedin.com/in/jona-rada-399b042a3/" 
-             target="_blank" class="social-icon">
-            <img src="linkedin-icon.png" alt="LinkedIn" />
-          </a>
+    <section id="how-it-works" class="how-it-works-section">
+      <div class="how-band">
+        <div class="how-text reveal">
+          <h3>How It Works</h3>
+          <p>We match PhD students with post-graduates from our team.</p>
+          <p>After you sign up, three post-graduate buddies are made available for you to connect with – you can get to know all of them and have conversations with whoever you choose or is available.</p>
+          <p>We define the structure of the conversation together based on your needs and goals.</p>
+          <p>We have open conversations with you about the non-academic, social, organizational, and mental challenges of your PhD journey.</p>
+          <p>The conversations can happen as often as the graduate and post-graduate buddies agree on.</p>
+          <p>We are not medical professionals; therefore, we are in no position to provide solutions about your personal journeys, but we are open to listening, sharing our experiences, and offering new perspectives.</p>
+          <p>These conversations will be confidential.</p>
         </div>
-        <p><strong>Jona</strong></p>
+
+        <div class="how-image reveal">
+          <img src="peoplePatternSquare.svg" alt="Decorative people pattern" />
+        </div>
       </div>
 
-      <!-- ALINA -->
-      <div class="buddy-row">
-        <div class="buddy-img-wrapper">
-          <img src="alina.jpg" alt="Alina" class="buddy-img" />
-          <a href="https://www.linkedin.com/in/alina-maria-ritz-798747293/" 
-             target="_blank" class="social-icon">
-            <img src="linkedin-icon.png" alt="LinkedIn" />
-          </a>
+      <p class="signup-text reveal">
+        Want to join? Sign up <a href="signup.html" class="signup-link">here</a> and share a few details about yourself so we can match you with the right buddy. It's completely free!
+      </p>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="about-us-page">
+      <div class="about-content two-columns">
+
+        <!-- LEFT COLUMN -->
+        <div class="column reveal">
+          <h3>Organizing Team &amp; Post-Graduate Buddies</h3>
+
+          <div class="buddy-row">
+            <div class="buddy-img-wrapper">
+              <img src="jona.jpg" alt="Jona" class="buddy-img" />
+              <a href="https://www.linkedin.com/in/jona-rada-399b042a3/" target="_blank" class="social-icon">
+                <img src="linkedin-icon.png" alt="LinkedIn" />
+              </a>
+            </div>
+            <p><strong>Jona</strong></p>
+          </div>
+
+          <div class="buddy-row">
+            <div class="buddy-img-wrapper">
+              <img src="alina.jpg" alt="Alina" class="buddy-img" />
+              <a href="https://www.linkedin.com/in/alina-maria-ritz-798747293/" target="_blank" class="social-icon">
+                <img src="linkedin-icon.png" alt="LinkedIn" />
+              </a>
+            </div>
+            <p><strong>Alina</strong></p>
+          </div>
         </div>
-        <p><strong>Alina</strong></p>
-      </div>
-    </div>
 
+        <!-- RIGHT COLUMN -->
+        <div class="column reveal">
+          <h3>Post-Graduate Buddies</h3>
 
-    <!-- RIGHT COLUMN -->
-    <div class="column">
-      <h3>Post-Graduate Buddies</h3>
+          <div class="buddy-row">
+            <div class="buddy-img-wrapper">
+              <img src="nadine.jpg" alt="Nadine" class="buddy-img" />
+              <a href="https://www.linkedin.com/in/nadine-tuechler/" target="_blank" class="social-icon">
+                <img src="linkedin-icon.png" alt="LinkedIn" />
+              </a>
+            </div>
+            <p><strong>Nadine</strong></p>
+          </div>
 
-      <!-- NADINE -->
-      <div class="buddy-row">
-        <div class="buddy-img-wrapper">
-          <img src="nadine.jpg" alt="Nadine" class="buddy-img" />
-          <a href="https://www.linkedin.com/in/nadine-tuechler/" 
-             target="_blank" class="social-icon">
-            <img src="linkedin-icon.png" alt="LinkedIn" />
-          </a>
+          <div class="buddy-row">
+            <div class="buddy-img-wrapper">
+              <img src="kevin.jpg" alt="Kevin" class="buddy-img" />
+              <a href="https://www.instagram.com/nzumbiart?igsh=MzBlaXZxdHRpeGw1" target="_blank" class="social-icon">
+                <img src="instagram.png" alt="Instagram" />
+              </a>
+            </div>
+            <p><strong>Kevin</strong></p>
+          </div>
         </div>
-        <p><strong>Nadine</strong></p>
+
       </div>
-
-  <!-- KEVIN -->
-  <div class="buddy-row">
-    <div class="buddy-img-wrapper">
-      <img src="kevin.jpg" alt="Kevin" class="buddy-img" />
-      <a href="https://www.instagram.com/nzumbiart?igsh=MzBlaXZxdHRpeGw1" 
-         target="_blank" class="social-icon">
-        <img src="instagram.png" alt="Instagram" />
-      </a>
-    </div>
-    <p><strong>Kevin</strong></p>
-  </div>
-
-
-  </div>
-</section>
-
-
-
-
+    </section>
 
   </main>
+
+  <script>
+    /* ── Header shadow on scroll ── */
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    /* ── Hamburger / mobile nav toggle ── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = !mobileNav.classList.contains('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      mobileNav.setAttribute('aria-hidden', !isOpen);
+      if (isOpen) {
+        mobileNav.style.display = 'flex';
+        // force reflow so transition fires
+        mobileNav.getBoundingClientRect();
+        mobileNav.classList.add('open');
+      } else {
+        mobileNav.classList.remove('open');
+      }
+    });
+
+    /* Close mobile nav when a link is tapped */
+    mobileNav.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileNav.classList.remove('open');
+        mobileNav.setAttribute('aria-hidden', 'true');
+      });
+    });
+
+    /* ── Nav highlight on scroll ── */
+    const sections    = document.querySelectorAll('main section');
+    const allNavLinks = document.querySelectorAll('.nav-link');
+
+    function highlightNav() {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 160) current = s.id;
+      });
+      allNavLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href').includes(current));
+      });
+    }
+    window.addEventListener('scroll', highlightNav, { passive: true });
+    highlightNav();
+
+    /* ── Smooth scroll ── */
+    allNavLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* ── Scroll reveal ── */
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = (i * 0.07) + 's';
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+  </script>
 </body>
 </html>
