@@ -298,6 +298,32 @@
       color: var(--brown-soft);
       margin-bottom: 10px;
     }
+    .buddy-box ul {
+      margin-top: 6px;
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .buddy-box ul li {
+      font-size: .9rem;
+      line-height: 1.6;
+      color: var(--brown-soft);
+      padding-left: 20px;
+      position: relative;
+    }
+    .buddy-box ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sage), var(--terra));
+      flex-shrink: 0;
+    }
     .why-join-section .final-line {
       text-align: center;
       font-style: italic;
@@ -311,33 +337,36 @@
     /* ─── How It Works Section ─── */
     .how-it-works-section {
       background: var(--sage-pale);
-      padding: 96px 40px 80px;
-      min-height: 100vh;
+      padding: 56px 40px 48px;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
+      box-sizing: border-box;
     }
     .how-band {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 72px;
       max-width: 1040px;
+      width: 100%;
       margin: 0 auto;
       align-items: center;
+      flex: 1;
     }
     .how-text h3 {
       font-family: var(--font-display);
-      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
       font-weight: 600;
       color: var(--ink);
-      margin-bottom: 28px;
+      margin-bottom: 20px;
       letter-spacing: -.02em;
     }
     .how-text p {
-      font-size: .95rem;
-      line-height: 1.8;
+      font-size: .9rem;
+      line-height: 1.7;
       color: var(--brown-soft);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       padding-left: 16px;
       border-left: 2px solid transparent;
       transition: border-color .2s, color .2s;
@@ -346,93 +375,135 @@
     .how-image { display: flex; justify-content: center; align-items: center; }
     .how-image img {
       max-width: 100%;
-      max-height: 420px;
+      max-height: 380px;
       object-fit: contain;
       border-radius: var(--radius-lg);
       filter: drop-shadow(0 12px 32px rgba(59,47,42,.12));
     }
     .signup-text {
       text-align: center;
-      margin-top: 52px;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--brown-soft);
+      padding-top: 32px;
       max-width: 1040px;
       margin-left: auto;
       margin-right: auto;
+      width: 100%;
+    }
+    .signup-text p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--brown-soft);
+      margin-bottom: 20px;
     }
     .signup-link {
-      font-weight: bold;
+      display: inline-block;
+      background: var(--terra);
+      color: var(--white);
       text-decoration: none;
-      color: var(--terra-dark);
-      border-bottom: 2px solid rgba(192,112,90,.4);
-      padding-bottom: 1px;
-      transition: color .2s, border-color .2s;
+      padding: 14px 36px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: .95rem;
+      letter-spacing: .02em;
+      transition: background .25s, transform .25s var(--ease-out), box-shadow .25s;
+      box-shadow: 0 4px 18px rgba(192,112,90,.32);
     }
-    .signup-link:hover { color: var(--terra); border-color: var(--terra); }
+    .signup-link:hover {
+      background: var(--terra-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(192,112,90,.42);
+    }
 
     /* ─── About Us Section ─── */
     .about-us-page {
-      background: var(--white);
-      padding: 96px 40px;
+      background: var(--cream);
+      padding: 80px 40px;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
     }
-    .about-content { max-width: 860px; width: 100%; }
-    .two-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-    }
-    .column { display: flex; flex-direction: column; align-items: center; }
-    .column h3 {
+    .about-us-page h2 {
       font-family: var(--font-display);
-      font-size: 1.1rem;
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
       font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 32px;
       text-align: center;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--sage-pale);
-      width: 100%;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: -.02em;
     }
-    .buddy-row {
+    .about-us-page .section-label {
+      text-align: center;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 52px;
+    }
+    .about-content { max-width: 960px; width: 100%; }
+
+    /* Portrait grid */
+    .portrait-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .portrait-card {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 18px;
-      margin-bottom: 28px;
-      width: 100%;
-      transition: transform .25s var(--ease-out);
+      text-align: center;
+      transition: transform .3s var(--ease-out);
     }
-    .buddy-row:hover { transform: translateX(4px); }
-    .buddy-row p { font-weight: 500; font-size: 1rem; color: var(--ink); }
-    .buddy-img-wrapper { position: relative; flex-shrink: 0; }
-    .buddy-img {
-      width: 80px;
-      height: 96px;
+    .portrait-card:hover { transform: translateY(-4px); }
+    .portrait-img-wrapper {
+      position: relative;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    .portrait-img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
       object-fit: cover;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-sm);
-      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
       display: block;
     }
-    .social-icon {
+    .portrait-social {
       position: absolute;
-      bottom: -6px; right: -6px;
-      width: 26px; height: 26px;
+      bottom: 10px; right: 10px;
+      width: 30px; height: 30px;
       background: var(--white);
       border-radius: 50%;
       box-shadow: var(--shadow-sm);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 4px;
+      padding: 5px;
       transition: transform .22s var(--ease-out);
     }
-    .social-icon:hover { transform: scale(1.15); }
-    .social-icon img { width: 100%; height: 100%; object-fit: contain; }
+    .portrait-social:hover { transform: scale(1.15); }
+    .portrait-social img { width: 100%; height: 100%; object-fit: contain; }
+    .portrait-name {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .portrait-role {
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    /* divider between organizers and buddies */
+    .portrait-divider {
+      grid-column: 1 / -1;
+      display: none;
+    }
 
     /* ─── Animations ─── */
     @keyframes fadeUp {
@@ -456,8 +527,11 @@
 
       .home-section { padding: 48px 20px; min-height: 100vh; }
       .why-join-section { padding: 60px 20px; min-height: 100vh; }
-      .how-it-works-section { padding: 60px 20px 56px; min-height: 100vh; }
-      .about-us-page { padding: 60px 20px; min-height: 100vh; align-items: flex-start; }
+      .how-it-works-section { padding: 48px 20px 44px; height: auto; min-height: 100vh; }
+      .about-us-page { padding: 60px 20px; min-height: 100vh; align-items: center; }
+      .portrait-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .portrait-name { font-size: .95rem; }
+      .portrait-role { font-size: .72rem; }
 
       .home-text h1 { font-size: 1.75rem; letter-spacing: -.015em; }
       .home-text p  { font-size: .95rem; }
@@ -470,10 +544,6 @@
       .how-image  { display: none; }
       .how-text h3 { font-size: 1.6rem; }
       .signup-text { margin-top: 36px; }
-
-      .two-columns { grid-template-columns: 1fr; gap: 36px; }
-      .column      { align-items: flex-start; }
-      .column h3   { text-align: left; }
     }
 
     /* ─── Mid-range (769–960px) ─── */
@@ -539,8 +609,13 @@
           <img src="preBuddy.png" class="buddy-icon" alt="Graduate buddy icon">
           <h3>As a Graduate Buddy</h3>
           <p>Gain a connection with people who truly understand and can relate to you.</p>
-          <p>Receive objective, unbiased advice on navigating your PhD journey.</p>
           <p>Learn from the firsthand experience of someone who has already completed their PhD and explored life after it.</p>
+          <p><strong>You might find PhD<em>buddy</em> helpful if any of the following resonate with you — just to name a few examples:</strong></p>
+          <ul>
+            <li>Are you feeling overwhelmed and unsure about how to talk to your supervisor?</li>
+            <li>Are you questioning whether continuing your PhD still makes sense for you and what your next steps might be?</li>
+            <li>Do you feel like an outsider in your academic environment and struggle to connect with colleagues?</li>
+          </ul>
         </div>
 
         <div class="buddy-box reveal">
@@ -574,65 +649,65 @@
         </div>
       </div>
 
-      <p class="signup-text reveal">
-        Want to join? Sign up <a href="signup.html" class="signup-link">here</a> and share a few details about yourself so we can match you with the right buddy. It's completely free!
-      </p>
+      <div class="signup-text reveal">
+        <p>Want to join? Share a few details about yourself so we can match you with the right buddy. It's completely free!</p>
+        <a href="signup.html" class="signup-link">Sign Up Here</a>
+      </div>
     </section>
 
     <!-- About Us Section -->
     <section id="about-us" class="about-us-page">
-      <div class="about-content two-columns">
+      <div class="about-content">
+        <h2 class="reveal">About Us</h2>
+        <p class="section-label reveal">Organizing Team &amp; Post-Graduate Buddies</p>
 
-        <!-- LEFT COLUMN -->
-        <div class="column reveal">
-          <h3>Organizing Team &amp; Post-Graduate Buddies</h3>
+        <div class="portrait-grid">
 
-          <div class="buddy-row">
-            <div class="buddy-img-wrapper">
-              <img src="jona.jpg" alt="Jona" class="buddy-img" />
-              <a href="https://www.linkedin.com/in/jona-rada-399b042a3/" target="_blank" class="social-icon">
+          <div class="portrait-card reveal">
+            <div class="portrait-img-wrapper">
+              <img src="jona.jpg" alt="Jona" class="portrait-img" />
+              <a href="https://www.linkedin.com/in/jona-rada-399b042a3/" target="_blank" class="portrait-social">
                 <img src="linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
-            <p><strong>Jona</strong></p>
+            <p class="portrait-name">Jona</p>
+            <p class="portrait-role">Organizer</p>
           </div>
 
-          <div class="buddy-row">
-            <div class="buddy-img-wrapper">
-              <img src="alina.jpg" alt="Alina" class="buddy-img" />
-              <a href="https://www.linkedin.com/in/alina-maria-ritz-798747293/" target="_blank" class="social-icon">
+          <div class="portrait-card reveal">
+            <div class="portrait-img-wrapper">
+              <img src="alina.jpg" alt="Alina" class="portrait-img" />
+              <a href="https://www.linkedin.com/in/alina-maria-ritz-798747293/" target="_blank" class="portrait-social">
                 <img src="linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
-            <p><strong>Alina</strong></p>
+            <p class="portrait-name">Alina</p>
+            <p class="portrait-role">Organizer</p>
           </div>
-        </div>
 
-        <!-- RIGHT COLUMN -->
-        <div class="column reveal">
-          <h3>Post-Graduate Buddies</h3>
-
-          <div class="buddy-row">
-            <div class="buddy-img-wrapper">
-              <img src="nadine.jpg" alt="Nadine" class="buddy-img" />
-              <a href="https://www.linkedin.com/in/nadine-tuechler/" target="_blank" class="social-icon">
+          <div class="portrait-card reveal">
+            <div class="portrait-img-wrapper">
+              <img src="nadine.jpg" alt="Nadine" class="portrait-img" />
+              <a href="https://www.linkedin.com/in/nadine-tuechler/" target="_blank" class="portrait-social">
                 <img src="linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
-            <p><strong>Nadine</strong></p>
+            <p class="portrait-name">Nadine</p>
+            <p class="portrait-role">Post-Graduate Buddy</p>
           </div>
 
-          <div class="buddy-row">
-            <div class="buddy-img-wrapper">
-              <img src="kevin.jpg" alt="Kevin" class="buddy-img" />
-              <a href="https://www.instagram.com/nzumbiart?igsh=MzBlaXZxdHRpeGw1" target="_blank" class="social-icon">
+          <div class="portrait-card reveal">
+            <div class="portrait-img-wrapper">
+              <img src="kevin.jpg" alt="Kevin" class="portrait-img" />
+              <a href="https://www.instagram.com/nzumbiart?igsh=MzBlaXZxdHRpeGw1" target="_blank" class="portrait-social">
                 <img src="instagram.png" alt="Instagram" />
               </a>
             </div>
-            <p><strong>Kevin</strong></p>
+            <p class="portrait-name">Kevin</p>
+            <p class="portrait-role">Post-Graduate Buddy</p>
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
 
