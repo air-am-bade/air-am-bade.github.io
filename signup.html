@@ -3,19 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
+  <title>Sign Up — PhDbuddy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sage-light: #B8C7A8;
+      --cream:      #FAF8F4;
+      --terra:      #C0705A;
+      --terra-dark: #9B4F39;
+      --brown:      #3B2F2A;
+      --brown-soft: #6B5347;
+      --white:      #FFFFFF;
+      --ink:        #2A2118;
+      --border:     rgba(59,47,42,.1);
+      --shadow-lg:  0 24px 64px rgba(59,47,42,.14);
+      --radius-md:  16px;
+      --radius-lg:  28px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --ease-out: cubic-bezier(.22,1,.36,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: linear-gradient(160deg, var(--sage-light) 0%, #cad8bc 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 60px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .back-link {
+      align-self: flex-start;
+      margin-bottom: 28px;
+      text-decoration: none;
+      color: var(--brown);
+      font-size: .875rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      opacity: .75;
+      transition: opacity .2s, transform .2s;
+    }
+    .back-link:hover { opacity: 1; transform: translateX(-3px); }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 48px 44px;
+      max-width: 720px;
+      width: 100%;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+    }
+
+    .card-header { text-align: center; margin-bottom: 32px; }
+
+    .brand {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 18px;
+      text-decoration: none;
+    }
+    .brand em { color: var(--terra); font-style: italic; font-weight: 400; }
+
+    .card-header h2 {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 10px;
+      letter-spacing: -.02em;
+    }
+    .card-header p {
+      font-size: .95rem;
+      color: var(--brown-soft);
+      line-height: 1.65;
+    }
+
+    .divider {
+      width: 44px; height: 3px;
+      background: linear-gradient(90deg, var(--sage-light), var(--terra));
+      border-radius: 99px;
+      margin: 18px auto 0;
+    }
+
+    .form-wrapper {
+      display: flex;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 900px;
+      border: none;
+    }
+
+    @media (max-width: 600px) {
+      .card { padding: 28px 16px; border-radius: var(--radius-md); }
+      .card-header h2 { font-size: 1.55rem; }
+      iframe { height: 1060px; }
+    }
+  </style>
 </head>
 <body>
 
-<h2>Sign Up</h2>
+  <a href="index.html" class="back-link">← Back to PhDbuddy</a>
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQXUeJYkWS3Cp8UugLQhq22JlAxkR-dwAj-nciq7r4RLI0Eg/viewform?embedded=true&hl=en" 
-  width="640" 
-  height="922" 
-  frameborder="0" 
-  marginheight="0" 
-  marginwidth="0">Loading…
-</iframe>
+  <div class="card">
+    <div class="card-header">
+      <a href="index.html" class="brand">PhD<em>buddy</em></a>
+      <h2>Sign Up</h2>
+      <div class="divider"></div>
+      <p>Share a few details about yourself so we can match you with the right buddy. It's completely free!</p>
+    </div>
+
+    <div class="form-wrapper">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdQXUeJYkWS3Cp8UugLQhq22JlAxkR-dwAj-nciq7r4RLI0Eg/viewform?embedded=true&hl=en"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0">Loading…
+      </iframe>
+    </div>
+  </div>
 
 </body>
 </html>
