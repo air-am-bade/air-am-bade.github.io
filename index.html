@@ -207,27 +207,41 @@
       margin-bottom: 14px;
     }
     .home-text .final-line {
-      margin-top: 32px;
+      margin-top: 44px;
       margin-bottom: 0;
       display: inline-block;
-      background: rgba(255,255,255,.55);
-      border: 1px solid rgba(255,255,255,.8);
-      border-radius: var(--radius-md);
-      padding: 16px 26px;
+      position: relative;
+      padding: 20px 0;
+      font-family: var(--font-display);
       font-style: italic;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--brown);
-      backdrop-filter: blur(6px);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.6;
+      letter-spacing: -.01em;
     }
+    .home-text .final-line::before,
+    .home-text .final-line::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(59,47,42,.35), transparent);
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+    .home-text .final-line::before { margin-bottom: 18px; }
+    .home-text .final-line::after  { margin-top: 18px; }
 
     /* ─── Why Join Section ─── */
     .why-join-section {
       background: var(--cream);
       padding: 96px 40px;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
     .why-join-section h2 {
       font-family: var(--font-display);
@@ -298,8 +312,10 @@
     .how-it-works-section {
       background: var(--sage-pale);
       padding: 96px 40px 80px;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
+      justify-content: center;
     }
     .how-band {
       display: grid;
@@ -359,6 +375,7 @@
     .about-us-page {
       background: var(--white);
       padding: 96px 40px;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -437,25 +454,26 @@
       .nav-bar { display: none; }          /* hide desktop nav */
       .hamburger { display: flex; }        /* show hamburger */
 
-      .home-section { padding: 48px 20px; }
+      .home-section { padding: 48px 20px; min-height: 100vh; }
+      .why-join-section { padding: 60px 20px; min-height: 100vh; }
+      .how-it-works-section { padding: 60px 20px 56px; min-height: 100vh; }
+      .about-us-page { padding: 60px 20px; min-height: 100vh; align-items: flex-start; }
+
       .home-text h1 { font-size: 1.75rem; letter-spacing: -.015em; }
       .home-text p  { font-size: .95rem; }
       .home-text .final-line { padding: 14px 18px; font-size: .9rem; }
 
-      .why-join-section { padding: 60px 20px; }
       .buddy-container  { grid-template-columns: 1fr; gap: 18px; margin-bottom: 36px; }
       .buddy-box        { padding: 28px 22px; border-radius: var(--radius-md); }
 
-      .how-it-works-section { padding: 60px 20px 56px; }
-      .how-band             { grid-template-columns: 1fr; gap: 0; }
-      .how-image            { display: none; }
-      .how-text h3          { font-size: 1.6rem; }
-      .signup-text          { margin-top: 36px; }
+      .how-band   { grid-template-columns: 1fr; gap: 0; }
+      .how-image  { display: none; }
+      .how-text h3 { font-size: 1.6rem; }
+      .signup-text { margin-top: 36px; }
 
-      .about-us-page        { padding: 60px 20px; align-items: flex-start; }
-      .two-columns          { grid-template-columns: 1fr; gap: 36px; }
-      .column               { align-items: flex-start; }
-      .column h3            { text-align: left; }
+      .two-columns { grid-template-columns: 1fr; gap: 36px; }
+      .column      { align-items: flex-start; }
+      .column h3   { text-align: left; }
     }
 
     /* ─── Mid-range (769–960px) ─── */
@@ -663,7 +681,7 @@
     function highlightNav() {
       let current = '';
       sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 160) current = s.id;
+        if (window.scrollY >= s.offsetTop - (window.innerHeight * 0.5)) current = s.id;
       });
       allNavLinks.forEach(l => {
         l.classList.toggle('active', l.getAttribute('href').includes(current));
@@ -678,7 +696,7 @@
         const target = document.querySelector(link.getAttribute('href'));
         if (target) {
           e.preventDefault();
-          window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+          window.scrollTo({ top: target.offsetTop - 72, behavior: 'smooth' });
         }
       });
     });
