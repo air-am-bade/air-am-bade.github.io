@@ -249,7 +249,6 @@
       flex-direction: column;
       gap: 9px;
     }
-    /* Numbered list items (How it works) */
     .home-card ul.numbered li {
       font-size: .84rem;
       color: var(--brown-soft);
@@ -272,7 +271,6 @@
       align-items: center;
       justify-content: center;
     }
-    /* Bullet list items (What we offer) */
     .home-card ul.dotted li {
       font-size: .84rem;
       color: var(--brown-soft);
@@ -291,7 +289,6 @@
       background: var(--sage);
     }
 
-    /* Final quote line */
     .home-text .final-line {
       display: inline-block;
       position: relative;
@@ -526,20 +523,55 @@
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--terra);
-      margin-bottom: 52px;
+      margin-bottom: 48px;
     }
-    .about-content { max-width: 960px; width: 100%; }
+    .about-content {
+      max-width: 1040px;
+      width: 100%;
+    }
 
-    /* Portrait grid — now 3 columns for 5 people (last row: 2 centered) */
-    .portrait-grid {
+    /* ─── Portrait Grid: uniform 4-column layout for all rows ─── */
+    .portrait-grid-wrapper {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
+      width: 100%;
     }
-    /* Center the last row of 2 */
-    .portrait-grid .portrait-card:nth-last-child(2):nth-child(3n+1) {
-      grid-column: 1 / 2;
+
+    /* Last row (3 cards): center them in a 4-col grid */
+    .portrait-grid-wrapper .portrait-card:nth-child(5),
+    .portrait-grid-wrapper .portrait-card:nth-child(6),
+    .portrait-grid-wrapper .portrait-card:nth-child(7) {
+      /* shift last 3 to center: start at col 1 of a 3-col sub-area centered in 4 */
     }
+
+    /* Use a subgrid trick: last 3 cards occupy cols 1–3 but we center with padding */
+    .portrait-grid-last-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 0;
+    }
+    .portrait-grid-last-row .portrait-card {
+      flex: 0 0 calc(25% - 18px); /* same width as 4-col grid cell */
+      max-width: calc(25% - 18px);
+    }
+
+    /* Row grids */
+    .portrait-row {
+      display: grid;
+      gap: 24px;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+    .portrait-row-4 { grid-template-columns: repeat(4, 1fr); }
+    .portrait-row-3 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    /* Center the 3 cards in a 4-column ghost grid */
+    .portrait-row-3 .portrait-card:first-child { grid-column: 1; }
+    .portrait-row-3 .portrait-card:nth-child(2) { grid-column: 2; }
+    .portrait-row-3 .portrait-card:nth-child(3) { grid-column: 3; }
 
     .portrait-card {
       display: flex;
@@ -559,7 +591,7 @@
       aspect-ratio: 3 / 4;
       object-fit: cover;
       border-radius: var(--radius-md);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-sm);
       display: block;
     }
     .portrait-social {
@@ -597,19 +629,6 @@
       line-height: 1.6;
       color: var(--brown-soft);
       text-align: center;
-      max-width: 240px;
-    }
-
-    /* Last row centering for 5-person grid */
-    .portrait-grid-last-row {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-top: 0;
-    }
-    .portrait-grid-last-row .portrait-card {
-      width: calc((960px - 48px) / 3);
-      max-width: 280px;
     }
 
     /* ─── Floating Sign-Up Bar ─── */
@@ -684,12 +703,16 @@
       .why-join-section { padding: 48px 20px 36px; height: auto; min-height: calc(100vh - var(--header-height)); }
       .how-it-works-section { padding: 48px 20px; height: auto; min-height: calc(100vh - var(--header-height)); }
       .about-us-page { padding: 60px 20px; height: auto; min-height: calc(100vh - var(--header-height)); align-items: center; }
-      .portrait-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      .portrait-grid-last-row { gap: 16px; }
-      .portrait-grid-last-row .portrait-card { width: calc(50vw - 28px); max-width: none; }
+
+      .portrait-row-4,
+      .portrait-row-3 { grid-template-columns: repeat(2, 1fr) !important; }
+      .portrait-row-3 .portrait-card:first-child { grid-column: auto; }
+      .portrait-row-3 .portrait-card:nth-child(2) { grid-column: auto; }
+      .portrait-row-3 .portrait-card:nth-child(3) { grid-column: auto; }
+
       .portrait-name { font-size: .95rem; }
       .portrait-role { font-size: .72rem; }
-      .portrait-bio { font-size: .78rem; max-width: 100%; }
+      .portrait-bio { font-size: .78rem; }
 
       .home-text h1 { font-size: 1.75rem; letter-spacing: -.015em; }
       .home-lead { font-size: .95rem; }
@@ -710,7 +733,11 @@
       .nav-link { padding: 7px 12px; font-size: .82rem; }
       .buddy-container { gap: 20px; }
       .how-band { gap: 40px; }
-      .portrait-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .portrait-row-4,
+      .portrait-row-3 { grid-template-columns: repeat(3, 1fr) !important; }
+      .portrait-row-3 .portrait-card:first-child { grid-column: auto; }
+      .portrait-row-3 .portrait-card:nth-child(2) { grid-column: auto; }
+      .portrait-row-3 .portrait-card:nth-child(3) { grid-column: auto; }
     }
   </style>
 </head>
@@ -719,7 +746,7 @@
   <!-- Fixed Header -->
   <header class="main-header" id="mainHeader">
     <a href="#home" class="logo-container">
-      <img src="hands.png" alt="PhDbuddy logo" class="logo" />
+      <img src="profile_photos/hands.png" alt="PhDbuddy logo" class="logo" />
       <span class="site-title">PhD<em>buddy</em></span>
     </a>
 
@@ -791,7 +818,7 @@
 
       <div class="buddy-container">
         <div class="buddy-box reveal">
-          <img src="preBuddy.png" class="buddy-icon" alt="Graduate buddy icon">
+          <img src="profile_photos/preBuddy.png" class="buddy-icon" alt="Graduate buddy icon">
           <h3>As a Graduate Buddy</h3>
           <p>Gain a connection with people who understand and can relate to you.</p>
           <p>Learn from the firsthand experience of someone who has already completed their PhD and explored life after it.</p>
@@ -804,7 +831,7 @@
         </div>
 
         <div class="buddy-box reveal">
-          <img src="postBuddy.png" class="buddy-icon" alt="Post-graduate buddy icon">
+          <img src="profile_photos/postBuddy.png" class="buddy-icon" alt="Post-graduate buddy icon">
           <h3>As a Post-Graduate Buddy</h3>
           <p>Have you ever wished you could go back to your first-year PhD self and share your hard-earned advice with them? While going back in time is not an option (yet), this is your chance to make a meaningful impact on someone else's PhD journey.</p>
           <p>Gain a new perspective on your own experiences — you might find that all the highs and lows of your journey can become valuable lessons to share.</p>
@@ -830,7 +857,7 @@
         </div>
 
         <div class="how-image reveal">
-          <img src="peoplePatternSquare.svg" alt="Decorative people pattern" />
+          <img src="profile_photos/peoplePatternSquare.svg" alt="Decorative people pattern" />
         </div>
       </div>
     </section>
@@ -840,86 +867,91 @@
       <div class="about-content">
         <h2 class="reveal">About Us</h2>
         <p class="section-label reveal">Organizing Team &amp; Post-Graduate Buddies</p>
- 
-        <!-- Row 1: Jona, Alina, Nadine -->
-        <div class="portrait-grid" style="margin-bottom: 24px;">
- 
+
+        <!-- Row 1: Jona, Alina, Nadine, Luisa (4 cards) -->
+        <div class="portrait-row portrait-row-4" style="margin-bottom: 24px;">
+
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
-              <img src="jona.jpg" alt="Jona" class="portrait-img" />
+              <img src="profile_photos/jona.jpg" alt="Jona" class="portrait-img" />
               <a href="https://www.linkedin.com/in/jona-rada-399b042a3/" target="_blank" class="portrait-social">
-                <img src="linkedin-icon.png" alt="LinkedIn" />
+                <img src="profile_photos/linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
-            <p class="portrait-role">Organizer</p>
+            <p class="portrait-role">Post-Graduate Buddy</p>
             <p class="portrait-bio">Hi, I'm <strong>Jona</strong> and I want to be a writer when I grow up. I could chat to you about music, movies, existential doom or just tell you stories about my cat. Happy to meet you!</p>
           </div>
- 
+
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
-              <img src="alina.jpg" alt="Alina" class="portrait-img" />
+              <img src="profile_photos/alina.jpg" alt="Alina" class="portrait-img" />
               <a href="https://www.linkedin.com/in/alina-maria-ritz-798747293/" target="_blank" class="portrait-social">
-                <img src="linkedin-icon.png" alt="LinkedIn" />
+                <img src="profile_photos/linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
             <p class="portrait-role">Organizer</p>
             <p class="portrait-bio">Hello, I'm <strong>Alina</strong>. I find joy in playing in an orchestra, getting lost in books, and water — on it through rowing and in it through scuba diving. I'm here hoping to offer the kind of non-academic support I wish I'd had during my PhD.</p>
           </div>
- 
+
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
-              <img src="nadine.jpg" alt="Nadine" class="portrait-img" />
+              <img src="profile_photos/nadine.jpg" alt="Nadine" class="portrait-img" />
               <a href="https://www.linkedin.com/in/nadine-tuechler/" target="_blank" class="portrait-social">
-                <img src="linkedin-icon.png" alt="LinkedIn" />
+                <img src="profile_photos/linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
-            <p class="portrait-role">Post-Graduate Buddy</p>
+            <p class="portrait-role">Organizer</p>
             <p class="portrait-bio">Hey, I am <strong>Nadine</strong>. I am fueled by music, curiosity and new experiences, in and out of work. I want to offer you a safe space where you can talk openly, feel heard and explore ideas together.</p>
           </div>
- 
-        </div>
- 
-        <!-- Row 2: Olivia, Laura, Nzumbi (Kevin) -->
-        <div class="portrait-grid-last-row">
- 
+
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
-              <img src="Olivia.jpg" alt="Olivia" class="portrait-img" />
-              <a href="https://www.linkedin.com/in/olivia-pfeil-gardiner-065218270/" target="_blank" class="portrait-social">
-                <img src="linkedin-icon.png" alt="LinkedIn" />
-              </a>
+              <img src="profile_photos/Luisa.jpg" alt="Luisa" class="portrait-img" />
             </div>
             <p class="portrait-role">Post-Graduate Buddy</p>
-            <p class="portrait-bio">Hey there, I'm <strong>Olivia</strong>. Outside of science, I enjoy all things circus, languages, home-fermenting and winter swimming. While PhDs tend to be all-consuming, I believe in the importance of keeping some non-science in our lives.</p>
+            <p class="portrait-bio">Hey, I'm <strong>Luisa</strong>! Apart from science, I enjoy crafting and cooking. The PhD journey can be challenging, so I'm here to hear you whether you want to talk about science, pop culture or random thoughts.</p>
           </div>
- 
+
+        </div>
+
+        <!-- Row 2: Laura, Nzumbi (Kevin), Silvija (3 cards, centered in 4-col ghost grid) -->
+        <div class="portrait-row portrait-row-3">
+
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
-              <img src="laura.jpg" alt="Laura" class="portrait-img" />
+              <img src="profile_photos/laura.jpg" alt="Laura" class="portrait-img" />
               <a href="https://www.linkedin.com/in/laura-sabou-815457115/" target="_blank" class="portrait-social">
-                <img src="linkedin-icon.png" alt="LinkedIn" />
+                <img src="profile_photos/linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
             <p class="portrait-role">Post-Graduate Buddy</p>
             <p class="portrait-bio">I'm <strong>Laura</strong> 👋 I know first hand how hard doing a PhD can be, so I am very happy to now be a listening ear for whoever needs it ☺️</p>
           </div>
- 
+
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
-              <img src="kevin.jpg" alt="Kevin" class="portrait-img" />
+              <img src="profile_photos/kevin.jpg" alt="Kevin" class="portrait-img" />
               <a href="https://www.instagram.com/nzumbiart?igsh=MzBlaXZxdHRpeGw1" target="_blank" class="portrait-social">
-                <img src="instagram.png" alt="Instagram" />
+                <img src="profile_photos/instagram.png" alt="Instagram" />
               </a>
             </div>
             <p class="portrait-role">Post-Graduate Buddy</p>
             <p class="portrait-bio">My name is <strong>Nzumbi</strong>, and I'd be happy to lend an ear and listen, if you'd like to share. I happen to like art 🎨👨🏾‍🎨</p>
           </div>
- 
+
+          <div class="portrait-card reveal">
+            <div class="portrait-img-wrapper">
+              <img src="profile_photos/Silvija.jpg" alt="Silvija" class="portrait-img" />
+            </div>
+            <p class="portrait-role">Post-Graduate Buddy</p>
+            <p class="portrait-bio">Hi, I'm <strong>Silvija</strong>. I enjoy getting lost in books and movies, watching football, staying active, and cuddling any animal that allows it. I hope to be someone you can talk to openly – whether about your PhD or just life in general.</p>
+          </div>
+
         </div>
- 
+
       </div>
     </section>
- 
+
   </main>
 
   <script>
