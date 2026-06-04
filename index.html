@@ -530,10 +530,10 @@
     }
     .about-content { max-width: 960px; width: 100%; }
 
-    /* Portrait grid — 3 columns (original) */
+    /* Portrait grid — 4 columns for row 1 */
     .portrait-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
     }
 
@@ -596,7 +596,7 @@
       max-width: 240px;
     }
 
-    /* Last row centering for 3-person row in 4-col grid */
+    /* Last row: 3 cards centered, sized to match 4-col grid width */
     .portrait-grid-last-row {
       display: flex;
       justify-content: center;
@@ -604,7 +604,7 @@
       margin-top: 0;
     }
     .portrait-grid-last-row .portrait-card {
-      width: calc((960px - 48px) / 3);
+      width: calc((960px - 72px) / 4);
       max-width: 280px;
     }
 
@@ -837,14 +837,14 @@
         <h2 class="reveal">About Us</h2>
         <p class="section-label reveal">Organizing Team &amp; Post-Graduate Buddies</p>
 
-        <!-- Row 1: Jona, Alina, Nadine -->
+        <!-- Row 1: Jona, Alina, Nadine, Luisa (4 columns) -->
         <div class="portrait-grid" style="margin-bottom: 24px;">
 
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
               <img src="profile_photos/jona.jpg" alt="Jona" class="portrait-img" />
               <a href="https://www.linkedin.com/in/jona-rada-399b042a3/" target="_blank" class="portrait-social">
-                <img src="profile_photos/linkedin-icon.png" alt="LinkedIn" />
+                <img src="linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
             <p class="portrait-role">Post-Graduate Buddy</p>
@@ -855,7 +855,7 @@
             <div class="portrait-img-wrapper">
               <img src="profile_photos/alina.jpg" alt="Alina" class="portrait-img" />
               <a href="https://www.linkedin.com/in/alina-maria-ritz-798747293/" target="_blank" class="portrait-social">
-                <img src="profile_photos/linkedin-icon.png" alt="LinkedIn" />
+                <img src="linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
             <p class="portrait-role">Organizer</p>
@@ -866,34 +866,34 @@
             <div class="portrait-img-wrapper">
               <img src="profile_photos/nadine.jpg" alt="Nadine" class="portrait-img" />
               <a href="https://www.linkedin.com/in/nadine-tuechler/" target="_blank" class="portrait-social">
-                <img src="profile_photos/linkedin-icon.png" alt="LinkedIn" />
+                <img src="linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
             <p class="portrait-role">Organizer</p>
             <p class="portrait-bio">Hey, I am <strong>Nadine</strong>. I am fueled by music, curiosity and new experiences, in and out of work. I want to offer you a safe space where you can talk openly, feel heard and explore ideas together.</p>
           </div>
 
-        </div>
-
-        <!-- Row 2: Luisa, Laura, Nzumbi (Kevin) -->
-        <div class="portrait-grid" style="margin-bottom: 24px;">
-
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
               <img src="profile_photos/Luisa.jpg" alt="Luisa" class="portrait-img" />
-              <a href="https://www.linkedin.com/in/PLACEHOLDER" target="_blank" class="portrait-social">
-                <img src="profile_photos/linkedin-icon.png" alt="LinkedIn" />
+              <a href="https://www.linkedin.com/in/msluisaabreu/" target="_blank" class="portrait-social">
+                <img src="linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
             <p class="portrait-role">Post-Graduate Buddy</p>
             <p class="portrait-bio">Hey, I'm <strong>Luisa</strong>! Apart from science, I enjoy crafting and cooking. The PhD journey can be challenging, so I'm here to hear you whether you want to talk about science, pop culture or random thoughts.</p>
           </div>
 
+        </div>
+
+        <!-- Row 2: Laura, Nzumbi (Kevin), Silvija — 3 centered -->
+        <div class="portrait-grid-last-row">
+
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
               <img src="profile_photos/laura.jpg" alt="Laura" class="portrait-img" />
               <a href="https://www.linkedin.com/in/laura-sabou-815457115/" target="_blank" class="portrait-social">
-                <img src="profile_photos/linkedin-icon.png" alt="LinkedIn" />
+                <img src="linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
             <p class="portrait-role">Post-Graduate Buddy</p>
@@ -904,23 +904,18 @@
             <div class="portrait-img-wrapper">
               <img src="profile_photos/kevin.jpg" alt="Kevin" class="portrait-img" />
               <a href="https://www.instagram.com/nzumbiart?igsh=MzBlaXZxdHRpeGw1" target="_blank" class="portrait-social">
-                <img src="profile_photos/instagram.png" alt="Instagram" />
+                <img src="instagram.png" alt="Instagram" />
               </a>
             </div>
             <p class="portrait-role">Post-Graduate Buddy</p>
             <p class="portrait-bio">My name is <strong>Nzumbi</strong>, and I'd be happy to lend an ear and listen, if you'd like to share. I happen to like art 🎨👨🏾‍🎨</p>
           </div>
 
-        </div>
-
-        <!-- Row 3: Silvija — centered -->
-        <div class="portrait-grid-last-row">
-
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
               <img src="profile_photos/Silvija.jpg" alt="Silvija" class="portrait-img" />
-              <a href="https://www.linkedin.com/in/PLACEHOLDER" target="_blank" class="portrait-social">
-                <img src="profile_photos/linkedin-icon.png" alt="LinkedIn" />
+              <a href="https://www.linkedin.com/in/silvija-svambaryte/" target="_blank" class="portrait-social">
+                <img src="linkedin-icon.png" alt="LinkedIn" />
               </a>
             </div>
             <p class="portrait-role">Post-Graduate Buddy</p>
