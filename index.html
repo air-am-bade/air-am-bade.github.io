@@ -249,6 +249,7 @@
       flex-direction: column;
       gap: 9px;
     }
+    /* Numbered list items (How it works) */
     .home-card ul.numbered li {
       font-size: .84rem;
       color: var(--brown-soft);
@@ -271,6 +272,7 @@
       align-items: center;
       justify-content: center;
     }
+    /* Bullet list items (What we offer) */
     .home-card ul.dotted li {
       font-size: .84rem;
       color: var(--brown-soft);
@@ -289,6 +291,7 @@
       background: var(--sage);
     }
 
+    /* Final quote line */
     .home-text .final-line {
       display: inline-block;
       position: relative;
@@ -523,55 +526,16 @@
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--terra);
-      margin-bottom: 48px;
+      margin-bottom: 52px;
     }
-    .about-content {
-      max-width: 1040px;
-      width: 100%;
-    }
+    .about-content { max-width: 960px; width: 100%; }
 
-    /* ─── Portrait Grid: uniform 4-column layout for all rows ─── */
-    .portrait-grid-wrapper {
+    /* Portrait grid — 3 columns (original) */
+    .portrait-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      width: 100%;
     }
-
-    /* Last row (3 cards): center them in a 4-col grid */
-    .portrait-grid-wrapper .portrait-card:nth-child(5),
-    .portrait-grid-wrapper .portrait-card:nth-child(6),
-    .portrait-grid-wrapper .portrait-card:nth-child(7) {
-      /* shift last 3 to center: start at col 1 of a 3-col sub-area centered in 4 */
-    }
-
-    /* Use a subgrid trick: last 3 cards occupy cols 1–3 but we center with padding */
-    .portrait-grid-last-row {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-top: 0;
-    }
-    .portrait-grid-last-row .portrait-card {
-      flex: 0 0 calc(25% - 18px); /* same width as 4-col grid cell */
-      max-width: calc(25% - 18px);
-    }
-
-    /* Row grids */
-    .portrait-row {
-      display: grid;
-      gap: 24px;
-      width: 100%;
-      margin-bottom: 24px;
-    }
-    .portrait-row-4 { grid-template-columns: repeat(4, 1fr); }
-    .portrait-row-3 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    /* Center the 3 cards in a 4-column ghost grid */
-    .portrait-row-3 .portrait-card:first-child { grid-column: 1; }
-    .portrait-row-3 .portrait-card:nth-child(2) { grid-column: 2; }
-    .portrait-row-3 .portrait-card:nth-child(3) { grid-column: 3; }
 
     .portrait-card {
       display: flex;
@@ -591,7 +555,7 @@
       aspect-ratio: 3 / 4;
       object-fit: cover;
       border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-md);
       display: block;
     }
     .portrait-social {
@@ -629,6 +593,19 @@
       line-height: 1.6;
       color: var(--brown-soft);
       text-align: center;
+      max-width: 240px;
+    }
+
+    /* Last row centering for 3-person row in 4-col grid */
+    .portrait-grid-last-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 0;
+    }
+    .portrait-grid-last-row .portrait-card {
+      width: calc((960px - 48px) / 3);
+      max-width: 280px;
     }
 
     /* ─── Floating Sign-Up Bar ─── */
@@ -703,16 +680,12 @@
       .why-join-section { padding: 48px 20px 36px; height: auto; min-height: calc(100vh - var(--header-height)); }
       .how-it-works-section { padding: 48px 20px; height: auto; min-height: calc(100vh - var(--header-height)); }
       .about-us-page { padding: 60px 20px; height: auto; min-height: calc(100vh - var(--header-height)); align-items: center; }
-
-      .portrait-row-4,
-      .portrait-row-3 { grid-template-columns: repeat(2, 1fr) !important; }
-      .portrait-row-3 .portrait-card:first-child { grid-column: auto; }
-      .portrait-row-3 .portrait-card:nth-child(2) { grid-column: auto; }
-      .portrait-row-3 .portrait-card:nth-child(3) { grid-column: auto; }
-
+      .portrait-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .portrait-grid-last-row { gap: 16px; }
+      .portrait-grid-last-row .portrait-card { width: calc(50vw - 28px); max-width: none; }
       .portrait-name { font-size: .95rem; }
       .portrait-role { font-size: .72rem; }
-      .portrait-bio { font-size: .78rem; }
+      .portrait-bio { font-size: .78rem; max-width: 100%; }
 
       .home-text h1 { font-size: 1.75rem; letter-spacing: -.015em; }
       .home-lead { font-size: .95rem; }
@@ -733,11 +706,7 @@
       .nav-link { padding: 7px 12px; font-size: .82rem; }
       .buddy-container { gap: 20px; }
       .how-band { gap: 40px; }
-      .portrait-row-4,
-      .portrait-row-3 { grid-template-columns: repeat(3, 1fr) !important; }
-      .portrait-row-3 .portrait-card:first-child { grid-column: auto; }
-      .portrait-row-3 .portrait-card:nth-child(2) { grid-column: auto; }
-      .portrait-row-3 .portrait-card:nth-child(3) { grid-column: auto; }
+      .portrait-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
     }
   </style>
 </head>
@@ -868,8 +837,8 @@
         <h2 class="reveal">About Us</h2>
         <p class="section-label reveal">Organizing Team &amp; Post-Graduate Buddies</p>
 
-        <!-- Row 1: Jona, Alina, Nadine, Luisa (4 cards) -->
-        <div class="portrait-row portrait-row-4" style="margin-bottom: 24px;">
+        <!-- Row 1: Jona, Alina, Nadine -->
+        <div class="portrait-grid" style="margin-bottom: 24px;">
 
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
@@ -904,18 +873,21 @@
             <p class="portrait-bio">Hey, I am <strong>Nadine</strong>. I am fueled by music, curiosity and new experiences, in and out of work. I want to offer you a safe space where you can talk openly, feel heard and explore ideas together.</p>
           </div>
 
+        </div>
+
+        <!-- Row 2: Luisa, Laura, Nzumbi (Kevin) -->
+        <div class="portrait-grid" style="margin-bottom: 24px;">
+
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
               <img src="profile_photos/Luisa.jpg" alt="Luisa" class="portrait-img" />
+              <a href="https://www.linkedin.com/in/PLACEHOLDER" target="_blank" class="portrait-social">
+                <img src="profile_photos/linkedin-icon.png" alt="LinkedIn" />
+              </a>
             </div>
             <p class="portrait-role">Post-Graduate Buddy</p>
             <p class="portrait-bio">Hey, I'm <strong>Luisa</strong>! Apart from science, I enjoy crafting and cooking. The PhD journey can be challenging, so I'm here to hear you whether you want to talk about science, pop culture or random thoughts.</p>
           </div>
-
-        </div>
-
-        <!-- Row 2: Laura, Nzumbi (Kevin), Silvija (3 cards, centered in 4-col ghost grid) -->
-        <div class="portrait-row portrait-row-3">
 
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
@@ -939,9 +911,17 @@
             <p class="portrait-bio">My name is <strong>Nzumbi</strong>, and I'd be happy to lend an ear and listen, if you'd like to share. I happen to like art 🎨👨🏾‍🎨</p>
           </div>
 
+        </div>
+
+        <!-- Row 3: Silvija — centered -->
+        <div class="portrait-grid-last-row">
+
           <div class="portrait-card reveal">
             <div class="portrait-img-wrapper">
               <img src="profile_photos/Silvija.jpg" alt="Silvija" class="portrait-img" />
+              <a href="https://www.linkedin.com/in/PLACEHOLDER" target="_blank" class="portrait-social">
+                <img src="profile_photos/linkedin-icon.png" alt="LinkedIn" />
+              </a>
             </div>
             <p class="portrait-role">Post-Graduate Buddy</p>
             <p class="portrait-bio">Hi, I'm <strong>Silvija</strong>. I enjoy getting lost in books and movies, watching football, staying active, and cuddling any animal that allows it. I hope to be someone you can talk to openly – whether about your PhD or just life in general.</p>
