@@ -357,6 +357,8 @@
       transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
     .buddy-box::before {
       content: '';
@@ -410,6 +412,21 @@
       background: linear-gradient(135deg, var(--sage), var(--terra));
       flex-shrink: 0;
     }
+
+    /* Join CTA block inside each buddy box */
+    .buddy-join {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .buddy-join p {
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
     .why-join-section .final-line {
       text-align: center;
       font-style: italic;
@@ -797,6 +814,10 @@
             <li>Are you questioning whether continuing your PhD still makes sense for you and what your next steps might be?</li>
             <li>Do you feel like an outsider in your academic environment and struggle to connect with colleagues?</li>
           </ul>
+          <div class="buddy-join">
+            <p>Currently doing a PhD? Join as a Graduate Buddy</p>
+            <a href="signup.html" class="floating-cta-btn">Join as a Graduate Buddy</a>
+          </div>
         </div>
 
         <div class="buddy-box reveal">
@@ -805,6 +826,10 @@
           <p>Have you ever wished you could go back to your first-year PhD self and share your hard-earned advice with them? While going back in time is not an option (yet), this is your chance to make a meaningful impact on someone else's PhD journey.</p>
           <p>Gain a new perspective on your own experiences — you might find that all the highs and lows of your journey can become valuable lessons to share.</p>
           <p>Build new connections and help create a kinder, healthier research culture.</p>
+          <div class="buddy-join">
+            <p>Already completed your PhD? Join as a Post-Graduate Buddy</p>
+            <a href="signup_postGrad.html" class="floating-cta-btn">Join as a Post-Graduate Buddy</a>
+          </div>
         </div>
       </div>
 
@@ -1035,7 +1060,7 @@
   <!-- Floating Sign-Up Bar -->
   <div class="floating-cta">
     <p>Want to join? Share a few details about yourself so we can match you with the right buddy. It's completely free!</p>
-    <a href="signup.html" class="floating-cta-btn">Sign Up Here</a>
+    <a href="#why-join" class="floating-cta-btn">Join PhDbuddy</a>
   </div>
 
 </body>
